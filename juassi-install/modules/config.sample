@@ -1,0 +1,19 @@
+<?php
+/*
+ * C-Blog Open Source Blog System {version}
+ * Config file generated on {date}
+ */
+
+define('JUASSI_CONNECT', 'mysql');
+define('JUASSI_DBHOST', '{dbhost}');
+define('JUASSI_DBNAME', '{dbname}');
+define('JUASSI_DBUSER', '{dbuser}');
+define('JUASSI_DBPASS', '{dbpass}');
+define('JUASSI_DBPORT', '{dbport}');
+define('JUASSI_DBPREFIX', '{dbprefix}');
+
+define('JUASSI_MYSQLVER', '{mysql_version}');
+define('JUASSI_SALT', '{salt}');
+
+// debug mode: 0 - disabled, 1 - enabled
+define('JUASSI_DEBUG', {debug});

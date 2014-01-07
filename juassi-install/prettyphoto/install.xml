@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<plugin name="prettyphoto">
+	<title>Pretty Photo</title>
+	<summary>Plugin will add lightbox effect to images using PrettyPhoto library.</summary>
+	<author>Intelliants LLC</author>
+	<contributor>Intelliants LLC</contributor>
+	<version>2.3.1</version>
+	<date>2013-01-20</date>
+	<status>active</status>
+	<compatibility>2.3</compatibility>
+
+	<config group="pictures" name="prettyphoto_divider" custom="1" type="divider" description="PrettyPhoto configuration">PrettyPhoto</config>
+	<config group="pictures" name="prettyphoto_show_title" custom="1" type="radio" values="1,0" description="Show title">1</config>
+	<config group="pictures" name="prettyphoto_style" custom="1" type="select" multiplevalues="dark_rounded,dark_square,facebook,light_rounded,light_square" description="PrettyPhoto style">dark_rounded</config>
+	<config group="pictures" name="prettyphoto_anim_speed" custom="1" type="select" multiplevalues="fast,slow,normal" description="PrettyPhoto animation speed">fast</config>
+	<config group="pictures" name="prettyphoto_socialtools" custom="1" type="textarea" values="" description="Social tools code">
+		<![CDATA[
+<div class="pp_social"><div class="twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></div><div class="facebook"><iframe src="http://www.facebook.com/plugins/like.php?locale=en_US&href='+location.href+'&amp;layout=button_count&amp;show_faces=true&amp;width=500&amp;action=like&amp;font&amp;colorscheme=light&amp;height=23" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:23px;" allowTransparency="true"></iframe></div></div>
+		]]>
+	</config>
+
+	<hooks>
+		<hook name="smartyFrontAfterHeadSection,smartyAdminAfterHeadSection" type="smarty">
+			<![CDATA[
+{if 'prettyphoto' == $config.lightbox_name}
+	{ia_print_css files='_IA_URL_plugins/prettyphoto/js/css/prettyPhoto'}
+	{ia_print_js files='_IA_URL_plugins/prettyphoto/js/js/jquery.prettyPhoto'}
+	{ia_add_js}
+	$(function()
+	{
+		$('a[rel^="ia_lightbox"]').prettyPhoto(
+		{
+			show_title: {$config.prettyphoto_show_title},
+			social_tools: '{$config.prettyphoto_socialtools}',
+			theme: '{$config.prettyphoto_style}',
+			animation_speed: '{$config.prettyphoto_anim_speed}'
+		});
+	});
+	{/ia_add_js}
+{/if}
+			]]>
+		</hook>
+	</hooks>
+
+	<install>
+		<code>
+			<![CDATA[
+$iaCore = iaCore::instance();
+
+$current_values = $iaCore->iaDb->one("`multiple_values`", "`name` = 'lightbox_name'", 'config');
+if ($current_values)
+{
+	$values = explode(',', $current_values);
+}
+
+$values[] = 'prettyphoto';
+
+$num_values = count($values);
+$updated_values = implode(',', $values);
+
+$iaCore->iaDb->update(array('multiple_values' => $updated_values), "`name` = 'lightbox_name'", null, 'config');
+
+if (1 == $num_values)
+{
+	$iaCore->set('lightbox_name', 'prettyphoto', true);
+}
+			]]>
+		</code>
+	</install>
+
+	<uninstall>
+		<code>
+			<![CDATA[
+$iaCore = iaCore::instance();
+
+$current_values = $iaCore->iaDb->one("`multiple_values`", "`name` = 'lightbox_name'", 'config');
+
+$values = explode(',', $current_values);
+if ($values)
+{
+	foreach ($values as $key => $value)
+	{
+		if ('prettyphoto' == $value)
+		{
+			unset($values[$key]);
+		}
+	}
+}
+
+$updated_values = implode(',', $values);
+
+$iaCore->iaDb->update(array('multiple_values' => $updated_values), "`name` = 'lightbox_name'", null, 'config');
+			]]>
+		</code>
+	</uninstall>
+</plugin>

@@ -1,0 +1,21 @@
+This document will contain upgrade information.
+
+Note: Juassi-2-alpha-1 is database version 4
+Note: Juassi-2-alpha-2 is database version 12
+Note: Juassi-2-alpha-3 is database version 15
+
+Database version 3 and higher will be able to be upgraded.
+
+==========================================================
+Upgrading from database version 5 to 6 (SQLite users only)
+==========================================================
+
+In the table `users` the column `active_key` no longer has the NOT NULL value.
+This is difficult to modify in SQLite. Please use 'SQLite Manager' to remove NOT NULL from this column. 
+
+==========================================================
+Upgrading from database version 11 to 12 (SQLite users only)
+==========================================================
+
+In the table `users` the column `website` no longer has the NOT NULL value.
+This is difficult to modify in SQLite. Please use 'SQLite Manager' to remove NOT NULL from this column. 

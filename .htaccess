@@ -1,0 +1,57 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /juassi_blog2/
+
+	RewriteRule ^archive/([0-9]{4,4})/([0-9]{1,2})/([0-9]{1,2})/([_0-9a-z-]+)([/]*)$ index.php?juassi_year=$1&juassi_month=$2&juassi_day=$3&juassi_x_title=$4&juassi_type=blog
+
+	RewriteRule ^archive/([0-9]{4,4})/([0-9]{1,2})/([0-9]{1,2})/([_0-9a-z-]+)/rss([/]*)$ juassi-rss-comments.php?juassi_year=$1&juassi_month=$2&juassi_day=$3&juassi_x_title=$4
+	RewriteRule ^archive/([0-9]{4,4})/([0-9]{1,2})/([0-9]{1,2})/([_0-9a-z-]+)/feed([/]*)$ juassi-rss-comments.php?juassi_year=$1&juassi_month=$2&juassi_day=$3&juassi_x_title=$4
+	RewriteRule ^archive/([0-9]{4,4})/([0-9]{1,2})/([0-9]{1,2})/([_0-9a-z-]+)/trackback([/]*)$ juassi-trackback.php?juassi_year=$1&juassi_month=$2&juassi_day=$3&juassi_x_title=$4
+	
+	RewriteRule ^archive/([0-9]{4,4})/([0-9]{1,2})/([0-9]{1,2})([/]*)$ index.php?juassi_year=$1&juassi_month=$2&juassi_day=$3&juassi_type=blog
+	RewriteRule ^archive/([0-9]{4,4})/([0-9]{1,2})/([0-9]{1,2})/page/([0-9]+)([/]*)$ index.php?juassi_year=$1&juassi_month=$2&juassi_day=$3&juassi_page=$4&juassi_type=blog
+	RewriteRule ^archive/([0-9]{4,4})/([0-9]{1,2})/([0-9]{1,2})/rss([/]*)$ juassi-rss.php?juassi_year=$1&juassi_month=$2&bt_day=$3
+	RewriteRule ^archive/([0-9]{4,4})/([0-9]{1,2})/([0-9]{1,2})/feed([/]*)$ juassi-rss.php?juassi_year=$1&juassi_month=$2&juassi_day=$3
+	
+	RewriteRule ^archive/([0-9]{4,4})/([0-9]{1,2})([/]*)$ index.php?juassi_year=$1&juassi_month=$2&juassi_type=blog
+	RewriteRule ^archive/([0-9]{4,4})/([0-9]{1,2})/page/([0-9]+)([/]*)$ index.php?juassi_year=$1&juassi_month=$2&juassi_page=$3&juassi_type=blog
+	RewriteRule ^archive/([0-9]{4,4})/([0-9]{1,2})/rss([/]*)$ juassi-rss.php?juassi_year=$1&juassi_month=$2
+	RewriteRule ^archive/([0-9]{4,4})/([0-9]{1,2})/feed([/]*)$ juassi-rss.php?juassi_year=$1&juassi_month=$2
+	
+	RewriteRule ^archive/([0-9]{4,4})([/]*)$ index.php?juassi_year=$1&juassi_type=blog
+	RewriteRule ^archive/([0-9]{4,4})/page/([0-9]+)([/]*)$ index.php?juassi_year=$1&juassi_page=$2&juassi_type=blog
+	RewriteRule ^archive/([0-9]{4,4})/rss([/]*)$ juassi-rss.php?juassi_year=$1
+	RewriteRule ^archive/([0-9]{4,4})/feed([/]*)$ juassi-rss.php?juassi_year=$1
+	
+	RewriteRule ^archive/([0-9]+)/([_0-9a-z-]+)([/]*)$ index.php?juassi_id=$1&juassi_x_title=$2&juassi_type=blog
+	RewriteRule ^archive/([0-9]+)/([_0-9a-z-]+)/rss([/]*)$ juassi-rss-comments.php?juassi_id=$1&juassi_x_title=$2
+	RewriteRule ^archive/([0-9]+)/([_0-9a-z-]+)/feed([/]*)$ juassi-rss-comments.php?juassi_id=$1&juassi_x_title=$2
+	RewriteRule ^archive/([0-9]+)/([_0-9a-z-]+)/trackback([/]*)$ juassi-trackback.php?juassi_id=$1&juassi_x_title=$2
+	
+	RewriteRule ^archive/page/([0-9]+)([/]*)$ index.php?juassi_page=$1&juassi_type=blog
+	
+	RewriteRule ^archive([/]*)$ index.php?juassi_type=juassi_archive
+	
+	RewriteRule ^category/([_0-9a-z-]+)([/]*)$ index.php?juassi_category=$1&juassi_type=blog
+	RewriteRule ^category/([_0-9a-z-]+)/page/([0-9]+)([/]*)$ index.php?juassi_category=$1&juassi_page=$2&juassi_type=blog
+	RewriteRule ^category/([_0-9a-z-]+)/rss([/]*)$ juassi-rss.php?juassi_category=$1&juassi_type=blog
+	RewriteRule ^category/([_0-9a-z-]+)/feed([/]*)$ juassi-rss.php?juassi_category=$1&juassi_type=blog
+	
+	RewriteRule ^rss([/]*)$ juassi-rss.php
+	RewriteRule ^rss/comments([/]*)$ juassi-rss-comments.php
+	RewriteRule ^feed([/]*)$ juassi-rss.php
+	RewriteRule ^feed/comments([/]*)$ juassi-rss-comments.php
+	
+	RewriteRule ^contact([/]*)$ index.php?juassi_type=contact_form
+	RewriteRule ^search([/]*)$ index.php?juassi_type=search
+	RewriteRule ^search/([_0-9a-z-]+)$ index.php?juassi_type=search&s=$1
+	
+	RewriteRule ^page([/]*)$ index.php?juassi_type=cms
+	RewriteRule ^page/([_0-9a-z-]+)([/]*)$ index.php?juassi_type=cms&juassi_x_title=$1
+	
+	RewriteRule ^blog([/]*)$ index.php?juassi_type=blog
+	
+	RewriteRule ^listings([/]*)$ index.php?juassi_type=renet_listings
+	RewriteRule ^listing/([0-9]+)([/]*)$ index.php?juassi_type=renet_listing&juassi_id=$1
+	
+</IfModule>

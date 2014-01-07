@@ -1,0 +1,155 @@
+.item  .description {
+    background: rgb(87,186,232);
+}
+.item.even .description {
+    background: rgb(108,190,66);
+}
+.scroll-box .item  .description {
+    background: rgb(87,186,232) url("../icons/white-list.png") 10px 10px no-repeat;
+}
+.scroll-box .item.even .description {
+    background: rgb(108,190,66) url("../icons/white-list.png") 10px 10px no-repeat;
+
+}
+
+/* -----------------------------------------
+   Retina ready icons
+----------------------------------------- */
+
+
+.tiled-menu li .arrow {
+    background: url("../icons/down.png") no-repeat;
+}
+
+
+/*-----------back-button---------------*/
+
+a.back {
+    background: url("../icons/back.png") 0 0 no-repeat;
+}
+a.back:hover {
+    background: url("../icons/back_hover.png") 1px 1px no-repeat;
+}
+
+/*-----------Item elements---------------*/
+
+.recent-tabs-widget .tabs dd span {
+    background: url("../icons/down.png") right 8px no-repeat;
+}
+
+/*-----------post-titles---------------*/
+
+.icon.info {
+    background: url("../icons/info.png");
+}
+.icon.recent {
+    background: url("../icons/recent.png") right bottom no-repeat;
+}
+
+
+/*-----------Widgets---------------*/
+
+
+.widget {
+    background: url("../icons/people.png")  0 6px no-repeat;
+}
+.widget.twitter-widget {
+    background: url("../icons/twitter.png")  0 6px no-repeat;
+}
+.widget.contact-form-widget {
+    background: url("../icons/pencil.png")  0 6px no-repeat;
+}
+.widget.recent-posts-widget {
+    background: url("../icons/pencil.png")  0 6px no-repeat;
+}
+.widget.search-widget {
+    background: url("../icons/search.png")  0 6px no-repeat;
+}
+.widget.tags-widget {
+    background: url("../icons/tags.png")  0 6px no-repeat;
+}
+.widget.text-widget {
+    background: url("../icons/text.png")  0 6px no-repeat;
+}
+.widget.category-widget {
+    background: url("../icons/category.png")  0 6px no-repeat;
+}
+.widget.widget_gallery_widget {
+    background: url("../icons/work.png")  0 6px no-repeat;
+}
+.widget.widget_facebook_widget {
+    background: url("../icons/heart.png")  0 6px no-repeat;
+}
+.widget.widget_info {
+    background: url("../icons/min-info.png")  0 6px no-repeat;
+}
+.widget.recent-tabs-widget {
+    background: url("../icons/recent.png")  0 6px no-repeat;
+}
+.twitter-widget .tweet, .tweet_odd, .tweet_even {
+    background: url("../icons/twitt.png")   0 6px no-repeat;
+}
+
+.widget.widget_login {
+    background: url("../icons/login.png") 0 0px no-repeat;
+}
+.widget.widget_shopping_cart {
+    background: url("../icons/cart.png") 0 0px no-repeat;
+}
+.widget.widget_recent_products {
+    background: url("../icons/sh_recent.png") 0 0px no-repeat;
+}
+
+
+
+#darkf .widget {
+    background: url("../icons/people_w.png")  0 6px no-repeat;
+}
+#darkf .widget.twitter-widget {
+    background: url("../icons/twitter_w.png")  0 6px no-repeat;
+}
+#darkf .widget.contact-form-widget {
+    background: url("../icons/pencil_w.png")  0 6px no-repeat;
+}
+#darkf .widget.recent-posts-widget {
+    background: url("../icons/pencil_w.png")  0 6px no-repeat;
+}
+#darkf .widget.search-widget {
+    background: url("../icons/search_w.png")  0 6px no-repeat;
+}
+#darkf .widget.tags-widget {
+    background: url("../icons/tags_w.png")  0 6px no-repeat;
+}
+#darkf .widget.text-widget {
+    background: url("../icons/text_w.png")  0 6px no-repeat;
+}
+#darkf .widget.category-widget {
+    background: url("../icons/category_w.png")  0 6px no-repeat;
+}
+#darkf .widget.widget_gallery_widget {
+    background: url("../icons/work_w.png")  0 6px no-repeat;
+}
+#darkf .widget.widget_facebook_widget {
+    background: url("../icons/heart_w.png")  0 6px no-repeat;
+}
+#darkf .widget.widget_info {
+    background: url("../icons/min-info_w.png")  0 6px no-repeat;
+}
+#darkf .widget.recent-tabs-widget {
+    background: url("../icons/recent_w.png")  0 6px no-repeat;
+}
+
+form input.text {
+    line-height: 16px;
+}
+.contact-form textarea {
+    max-width: 459px;
+}
+.tile a {
+filter:alpha(opacity=0);
+background-color:#fff;
+}
+
+.contact-form textarea {
+    max-width: 458px;
+}

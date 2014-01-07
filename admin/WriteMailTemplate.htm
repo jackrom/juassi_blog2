@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Ajax Mail</title>
+        <link rel="stylesheet" type="text/css" href="styles/AjaxMail.css" />
+    </head>
+    <body>       
+        <ul id="ulMainMenu">
+            <li id="liCompose"><span class="link" id="spnCompose">Compose Mail</span></li>
+            <li><span class="link" id="spnInbox">Inbox<span id="spnUnreadMail"></span></span></li>
+            <li><span class="link" id="spnTrash">Trash</span> (<span class="link" id="spnEmpty">Empty</span>)</li>
+        </ul>
+        <div id="divNotice"></div>
+        <div id="divComposeMail">
+            <div class="header">
+                 <h1 id="hSubject">Compose Mail</h1>
+            </div>
+             <ul id="ulComposeActions" class="message-actions">
+                 <li><span class="link" id="spnSend">Send</span></li>
+                 <li><span class="link" id="spnCancel">Cancel</span></li>                
+             </ul>             
+             <div id="divComposeBody">
+                 <form method="post" action="AjaxMailSend.php">
+                     <table border="0" cellpadding="0" cellspacing="0">
+                         <tr>
+                             <td class="field-label-container"><label for="txtTo" class="field-label">To:</label></td>
+                             <td class="field-container"><textarea rows="2" cols="30" id="txtTo" name="txtTo" class="form-field"></textarea></td>
+                         </tr>
+                         <tr>
+                             <td class="field-label-container"><label for="txtCC" class="field-label">CC:</label></td>
+                             <td class="field-container"><textarea rows="2" cols="30" id="txtCC" name="txtCC" class="form-field"></textarea></td>
+                         </tr>
+                         <tr>
+                             <td class="field-label-container"><label for="txtSubject" class="field-label">Subject:</label></td>
+                             <td class="field-container"><input type="text" id="txtTo" name="txtSubject"  class="form-field" /></td>
+                         </tr>
+                         <tr>
+                             <td class="message-container" colspan="2"><textarea id="txtMessage" name="txtMessage" rows="15" cols="30" class="form-field"></textarea></td>
+                         </tr>
+                     </table>
+                 </form>             
+             </div>
+        </div>
+
+    </body>
+</html>

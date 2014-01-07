@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<plugin name="kcaptcha">
+	<title>KCaptcha</title>
+	<summary>Plugin adds the CAPTCHA to all pages where it is needed to prevents automatic bot form submission.</summary>
+	<author>Intelliants LLC</author>
+	<contributor>Intelliants LLC</contributor>
+	<version>2.4.0</version>
+	<date>2013-02-01</date>
+	<status>active</status>
+	<compatibility>2.3</compatibility>
+
+	<config group="captcha" name="kcaptcha_divider" custom="1" type="divider" description="KCAPTCHA configuration">KCAPTCHA</config>
+	<config group="captcha" name="captcha_case_sensitive" custom="1" type="radio" values="1,0" description="Case sensitive">1</config>
+	<config group="captcha" name="captcha_num_chars" type="text" custom="1" description="Number of characters">5</config>
+
+	<phrases>
+		<phrase key="click_to_redraw" category="frontend">Click here to redraw</phrase>
+		<phrase key="captcha_annotation" category="frontend">Please input letters you see on the image.&lt;br /&gt;Click on image to redraw.</phrase>
+	</phrases>
+
+	<install>
+		<code>
+			<![CDATA[
+$iaCore = iaCore::instance();
+
+$currentValues = $iaCore->iaDb->one("`multiple_values`", "`name` = 'captcha_name'", 'config');
+if ($currentValues)
+{
+	$values = explode(',', $currentValues);
+}
+
+$values[] = 'kcaptcha';
+
+$num_values = count($values);
+$updated_values = implode(',', $values);
+
+$iaCore->iaDb->update(array('multiple_values' => $updated_values), "`name` = 'captcha_name'", null, 'config');
+
+if (1 == $num_values)
+{
+	$iaCore->set('kcaptcha', 'captcha_name', true);
+}
+			]]>
+		</code>
+	</install>
+
+	<uninstall>
+		<code>
+			<![CDATA[
+$iaCore = iaCore::instance();
+
+$values = explode(',', $iaCore->iaDb->one("`multiple_values`", "`name` = 'captcha_name'", 'config'));
+if ($values)
+{
+	foreach ($values as $key => $value)
+	{
+		if ('kcaptcha' == $value)
+		{
+			unset($values[$key]);
+		}
+	}
+}
+
+$updated_values = implode(',', $values);
+
+$iaCore->iaDb->update(array('multiple_values' => $updated_values), "`name` = 'captcha_name'", null, 'config');
+			]]>
+		</code>
+	</uninstall>
+</plugin>

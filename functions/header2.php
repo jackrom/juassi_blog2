@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+			<html xmlns="http://www.w3.org/1999/xhtml">
+				<head>
+					<title>JUASSI :: Stop</title>
+					<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+					<style type="text/css" media="screen">@import url("<?php echo JUASSI_REL_ROOT; ?>juassi-resources/css/admin-layout.css)"</style>
+				</head>
+
+				<body>
+				<div class="header">
+					<div class="headerimg"></div>
+				</div>
+				<div class="body">
+						<div class="contain">
+							<h1>JUASSI :: Stop</h1>
+							<h3><?php echo $stop_message; ?></h3>
+							<p><a href="<?php echo juassi_get_config('address'); ?>/">&laquo; Home</a> <a href="<?php echo juassi_get_config('address') . JUASSI_ADMIN; ?>/">Admin Home &raquo;</a></p>
+						</div>
+						<br />
+						<div class="copyright">
+							<p>Powered by <a href="http://www.juassi.com/">Juassi</a>.</p><?php echo $_SERVER['SERVER_SIGNATURE']; ?>
+						</div>
+				</div>
+				</body>
+			</html>

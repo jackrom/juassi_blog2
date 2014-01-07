@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Ajax Mail</title>
+        <link rel="stylesheet" type="text/css" href="styles/AjaxMail.css" />
+    </head>
+    <body>       
+        <ul id="ulMainMenu">
+            <li id="liCompose"><span class="link" id="spnCompose">Compose Mail</span></li>
+            <li><span class="link" id="spnInbox">Inbox<span id="spnUnreadMail"></span></span></li>
+            <li><span class="link" id="spnTrash">Trash</span> (<span class="link" id="spnEmpty">Empty</span>)</li>
+        </ul>
+        <div id="divNotice"></div>
+        <div id="divReadMail">
+            <div class="header">
+                 <h1 id="hSubject">This is a subject...</h1>
+            </div>
+             <div class="message-headers">
+                 <div id="divFrom">Joe Smith &lt;joe@smith.net&gt;</div>
+                 <div id="divMessageDate">Fri Oct 06, 2004 5:55 PM</div>
+             </div>    
+             <div id="divMessageTo">
+                 To Michael Smith &lt;mike@somewhere.com&gt;
+             </div>
+             <div id="divMessageCC"></div>    
+             <div id="divMessageBCC"></div>
+             <ul class="message-actions">
+                 <li><span class="link" id="spnReply">Reply</span></li>
+                 <li><span class="link" id="spnReplyAll">Reply All</span></li>
+                 <li><span class="link" id="spnForward">Forward</span></li>  
+                 <li id="liAttachments"><a href="#attachments">View Attachments</a></li>               
+             </ul>             
+            <div id="divMessageBody">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed ligula orci, vehicula vitae, fringilla in, vulputate ac, velit. Quisque vulputate. Nunc condimentum pede nec urna. Praesent tristique tempor lectus. Nunc a leo et ante accumsan molestie. Aenean at metus in mi fringilla aliquam. Donec lorem libero, adipiscing ut, fermentum eget, venenatis eu, orci. Mauris ac nibh. Fusce molestie, sem semper vehicula pellentesque, lectus urna tristique arcu, at malesuada pede tellus sed nisi. Morbi leo odio, bibendum a, viverra id, euismod sollicitudin, diam. In pellentesque blandit lorem. Phasellus imperdiet justo sit amet ante. Donec fringilla dolor in massa.</p>
+                
+                <p>Pellentesque nec erat. Proin non arcu. Pellentesque id metus. Mauris sit amet risus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi nec ipsum ut nisi laoreet scelerisque. Nulla ultricies consectetuer enim. Duis sit amet nunc. Nulla magna. Nunc a mi.</p>
+                
+                           
+            </div>
+            <div id="divMessageAttachments">
+                <a name="attachments" id="aAttachments">Attachments</a>
+                <ul id="ulAttachments">
+                    <li class="attachment"><span class="link">Attachment1.zip</span> (30 KB)</li>
+                    <li class="attachment"><span class="link">Attachment2.zip</span> (30 KB)</li>
+                    <li class="attachment"><span class="link">Attachment3.zip</span> (30 KB)</li>
+                    <li class="attachment"><span class="link">Attachment4.zip</span> (30 KB)</li>               
+                </ul>
+            </div>
+
+        </div>
+
+    </body>
+</html>
