@@ -12,4 +12,4 @@ PHP 5.2 required (with PHP PDO class).
 MySQL 4.1+ or SQLite.
 Mod_Rewrite highly recommended.
 
-If you have any problems sign up to the mailing list(s) and ask a question (found here: http://www.juassi.com/weblog/archive/2006/10/05/juassi-mailing-lists/).
+If you have any problems sign up to the mailing list(s) and ask a question (found here: http://www.juassi.com/archive/2006/10/05/juassi-mailing-lists/).
