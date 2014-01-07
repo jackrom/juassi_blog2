@@ -11,8 +11,8 @@
 				'plugin_description' => 'An example plugin',
 				'plugin_update_checker_url' => '',
 				'plugin_author' => 'Author Name',
-				'plugin_author_website' => 'http://www.bluetrait.org/',
-				'plugin_website' => 'http://www.bluetrait.org/',
+				'plugin_author_website' => 'http://www.juassi.com/',
+				'plugin_website' => 'http://www.juassi.com/',
 				'plugin_version' => '1.0'
 			);
 	
