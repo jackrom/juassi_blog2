@@ -9,8 +9,8 @@
 		public $dateBoxHorizontalSpace;
 		public $dateBoxVerticalSpace;
 		public $dateBoxBGColor;
-                public $todayDateBoxBGColor;
-                public $emptyDateBoxAlpha;
+        public $todayDateBoxBGColor;
+        public $emptyDateBoxAlpha;
 		public $dateFormat;
 		public $startingWeekDay;
 		public $weekDayNamesShort;

@@ -66,7 +66,7 @@
 						if ($juassi_comment_post['juassi_comment_remember_details']) {
 							$juassi_cookie_array = juassi_get_cookie_array();
 
-							$juassi_cookie_array['comment_website'] = juassi_htmlentities($bt_comment_post['comment_website']);
+							$juassi_cookie_array['comment_website'] = juassi_htmlentities($juassi_comment_post['comment_website']);
 							$juassi_cookie_array['comment_display_name'] = juassi_htmlentities($juassi_comment_post['comment_display_name']);
 							$juassi_cookie_array['comment_email'] =	juassi_htmlentities($juassi_comment_post['comment_email']);
 							$juassi_cookie_array['comment_allow_contact_form'] = (int) $juassi_comment_post['comment_allow_contact_form'];
@@ -103,11 +103,11 @@
 					$juassi_processed_comment = $juassi_spam->get_comment();
 
 					//echo '<pre>';
-					//print_r($bt_processed_comment);
+					//print_r($juassi_processed_comment);
 					//echo '</pre>';
 
 					if ($juassi_processed_comment['comment_approved'] == 0) {
-						$juassi_input_error = '<strong>Your message has been sent to the moderation queue.</strong>';
+						$juassi_input_error = '<strong>Tu mensaje ha sido enviado a la cola de moderaci&oacute;.</strong>';
 						$_SESSION['juassi_input_error'] = $juassi_input_error;
 					}
 
@@ -116,14 +116,14 @@
 					juassi_set_header('Location: ' . juassi_post_permalink() . '#posted');
 				}
 				else {
-					$juassi_input_error = '<strong>Your comment cannot be empty.</strong>';
+					$juassi_input_error = '<strong>Tu comentario no puede estar vac&iacute;o.</strong>';
 					$_SESSION['juassi_input_error'] = $juassi_input_error;
 					juassi_set_header('Location: ' . juassi_post_permalink() . '#posted');
 				}
 
 			}
 			else {
-				$juassi_input_error = '<strong>Commenting is not enabled for this post.</strong>';
+				$juassi_input_error = '<strong>Los comentarios no estan habilitados para este art&iacute;culo.</strong>';
 				$_SESSION['juassi_input_error'] = $juassi_input_error;
 				juassi_set_header('Location: ' . juassi_post_permalink() . '#posted');
 			}

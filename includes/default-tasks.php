@@ -116,7 +116,7 @@ function juassi_update_check() {
 	);
 
 	$context = stream_context_create($options);
-	$url = 'http://update.juassi.org/juassi2/update_check.php';
+	$url = 'http://www.juassi.org/juassi-blog2/update_check.php';
 	$update_feed = file_get_contents($url, false, $context);
 	if ($update_feed) {
 		juassi_set_config('last_update_response', $update_feed);

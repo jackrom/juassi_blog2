@@ -44,7 +44,7 @@
  *
  *	@package	akismet
  *	@name		Akismet
- *	@version	0.3 Bluetrait (Modified by Michael Dale for use in Bluetrait 2)
+ *	@version	0.3 Juassi (Modified by Juan Carlos Reyes for use in Juassi-Blog 2)
  *  	@author		Alex Potsides (converted to PHP4 by Bret Kuhns)
  *  	@link		http://www.achingbrain.net/
  */
@@ -56,7 +56,7 @@ class Akismet {
 	var $apiPort;
 	var $akismetServer;
 	var $akismetVersion;
-	var $bluetraitVersion;
+	var $juassiVersion;
 	var $verify_key;
 
 	/**
@@ -64,7 +64,7 @@ class Akismet {
 	 *	@param	string	Your WordPress API key.
 	 *	@param	string	$blogURL			The URL of your blog.
 	 */
-	function Akismet($blogURL, $wordPressAPIKey, $bt_version) {
+	function Akismet($blogURL, $wordPressAPIKey, $juassi_version) {
 		$this->blogURL = $blogURL;
 		$this->wordPressAPIKey = $wordPressAPIKey;
 
@@ -72,7 +72,7 @@ class Akismet {
 		$this->apiPort = 80;
 		$this->akismetServer = 'rest.akismet.com';
 		$this->akismetVersion = '1.1';
-		$this->bluetraitVersion = $juassi_version;
+		$this->juassiVersion = $juassi_version;
 
 		// Start to populate the comment data
 		$this->comment['blog'] = $blogURL;
@@ -115,7 +115,7 @@ class Akismet {
 		$http_request .= "Host: " . $host . "\r\n";
 		$http_request .= "Content-Type: application/x-www-form-urlencoded; charset=utf-8\r\n";
 		$http_request .= "Content-Length: " . strlen($request) . "\r\n";
-		$http_request .= "User-Agent: Bluetrait/$this->bluetraitVersion | Akismet/1.11\r\n";
+		$http_request .= "User-Agent: Juassi/$this->juassiVersion | Akismet/1.11\r\n";
 		$http_request .= "\r\n";
 		$http_request .= $request;
 

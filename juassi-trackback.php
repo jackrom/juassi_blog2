@@ -16,12 +16,12 @@ if (juassi_get_config('trackbacks')) {
 
 		/*
 		echo '<pre>';
-		print_r($bt_content_identifier);
+		print_r($juassi_content_identifier);
 		echo '</pre>';
 		exit;
 		*/
 		if (count($juassi_post_array) == 1 && !$juassi_content_identifier['empty']) {
-			//print_r($bt_post_array);
+			//print_r($juassi_post_array);
 			$juassi_post = $juassi_post_array[0];
 
 			//posted stuff from other blog site
@@ -51,7 +51,7 @@ if (juassi_get_config('trackbacks')) {
 			//spam filtering happens here
 			$juassi_spam->set_comment($juassi_comment_post);
 			$juassi_processed_comment = $juassi_spam->get_comment();
-			//print_r($bt_processed_comment);
+			//print_r($juassi_processed_comment);
 			//exit;
 			if ($juassi_processed_comment['comment_akismet_spam']) {
 				juassi_set_header('Content-Type: text/xml; charset=UTF-8');
@@ -59,7 +59,7 @@ if (juassi_get_config('trackbacks')) {
 				echo '<?xml version="1.0" encoding="iso-8859-1"?'.">\n";
 				echo "<response>\n";
 				echo "<error>1</error>\n";
-				echo "<message>Trackback not accepted as it has been detected as spam.</message>\n";
+				echo "<message>Trackback no aceptada ya que se ha detectado como spam.</message>\n";
 				echo "</response>";
 			}
 			else {
@@ -70,7 +70,7 @@ if (juassi_get_config('trackbacks')) {
 				echo '<?xml version="1.0" encoding="iso-8859-1"?'.">\n";
 				echo "<response>\n";
 				echo "<error>0</error>\n";
-				echo "<message>Trackback accepted.</message>\n";
+				echo "<message>Trackback aceptada.</message>\n";
 				echo "</response>";
 			}
 		}
@@ -90,7 +90,7 @@ if (juassi_get_config('trackbacks')) {
 		echo '<?xml version="1.0" encoding="iso-8859-1"?'.">\n";
 		echo "<response>\n";
 		echo "<error>1</error>\n";
-		echo "<message>Required Data Not Found</message>\n";
+		echo "<message>Datos requeridos no encontrado</message>\n";
 		echo "</response>";
 	}
 }
@@ -100,7 +100,7 @@ else {
 	echo '<?xml version="1.0" encoding="iso-8859-1"?'.">\n";
 	echo "<response>\n";
 	echo "<error>1</error>\n";
-	echo "<message>Trackbacks Globally Disabled</message>\n";
+	echo "<message>Trackbacks Globalmente Deshabilitado</message>\n";
 	echo "</response>";
 }
 
