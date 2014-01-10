@@ -26,17 +26,17 @@ function juassi_upload_script() {
 			$upload_file = $destination. $file['name'];
 
 			if(file_exists($upload_file)) {
-				$file_error[] = $file['name'].' - Filename exists - please change your image filename';
+				$file_error[] = $file['name'].' - Nombre del archivo ya existe';
 			}
 			else {
 				if(!move_uploaded_file($file['tmp_name'], $upload_file)) {
 					// failed to move file
-					$file_error[] = 'File Upload Failed on '.$file['name'].' - Please try again';
+					$file_error[] = 'Fallo la subida del archivo '.$file['name'].' - Por favor intentelo de  nuevo';
 				}
 				else {
 					// upload OK - change file permissions
 					chmod($upload_file, 0755);
-					trigger_error('File uploaded: ' . $file['name'], E_USER_NOTICE);
+					trigger_error('Archivo Cargado: ' . $file['name'], E_USER_NOTICE);
 				}
 			}
 
@@ -59,7 +59,7 @@ function juassi_upload_script() {
 
 				case (1|2):
 					// upload too large
-					$file_error[] = 'File upload is too large for '.$file['name'];
+					$file_error[] = 'El archivo subido es demasiado grande '.$file['name'];
 				break;
 
 				case 4:
@@ -69,8 +69,8 @@ function juassi_upload_script() {
 
 				case (6|7):
 					// no temp folder or failed write - server config errors
-					$file_error[] = 'Internal error - flog the webmaster on '.$file['name'];
-					trigger_error('No temp folder or failed write (file upload failed)' . $file['name'], E_USER_ERROR);
+					$file_error[] = 'Error Interno - sobrecargado el directorio con '.$file['name'];
+					trigger_error('No hay carpeta temporal o fallo al escribir (fallo en subir el archivo)' . $file['name'], E_USER_ERROR);
 				break;
 			}
 		}

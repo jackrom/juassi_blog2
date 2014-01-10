@@ -4,54 +4,54 @@ $access =
   array(
     "time" =>
     array(
-      "reset" => 1357948493, "last" => 1389151709, 
+      "reset" => 1357948493, "last" => 1389364742, 
       "hour" =>
       array(
-        0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
       ),
       "wday" =>
       array(
-        7, 21, 0, 1, 0, 5, 0
+        7, 21, 0, 1, 4, 2, 0
       ),
       "day" =>
       array(
-        0, 0, 5, 0, 7, 21, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        0, 0, 5, 0, 7, 21, 0, 1, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
       ),
       "month" =>
       array(
-        34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1
+        40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1
       )
     ),
     "page" =>
     array(
       "Estadist&amp;iacute;cas Globales" =>
       array(
-        "count" => 102, "uri" => "/"
+        "count" => 108, "uri" => "/"
       )
     ),
     "stat" =>
     array(
-      "totalvisits" => 102, "totalcount" => 31, 
+      "totalvisits" => 108, "totalcount" => 36, 
       "ext" =>
       array(
-        "unknown" => 31
+        "unknown" => 36
       ),
       "browser" =>
       array(
-        "other" => 31
+        "other" => 36
       ),
       "os" =>
       array(
-        "other" => 31
+        "other" => 36
       )
     ),
     "referer" =>
     array(
-      "not_specified" => 31
+      "not_specified" => 36
     ),
     "host" =>
     array(
-      "localhost" => 31
+      "localhost" => 36
     ),
     "bugs" =>
     array(

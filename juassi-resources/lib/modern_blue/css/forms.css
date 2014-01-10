@@ -1,0 +1,165 @@
+/**
+ * Forms CSS
+ * 
+ * Copyright (c) 2010 Mark Osborne
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @author Mark Osborne
+ * @version 1.0
+ */
+
+form, fieldset {
+    margin: 0;
+    padding: 0;
+}
+fieldset.buttons {
+    float: right;
+}
+.input_textbox, .file_input_textbox, .input_textarea {
+	font-family: DroidSerifItalic, Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	text-decoration: none;
+	border: 1px solid #C8C8C8;
+	border-top: 1px solid #9B9B9B;
+	border-bottom: 1px solid #D0D0D0;
+	outline: none;
+	color: #333333;
+	float: right;
+	width: 356px;
+	padding: 9px 10px 8px 10px;
+	position:relative;
+	margin: 1px 0 12px 0;
+	
+	background: #FFFFFF;
+	
+	-moz-box-shadow: inset 0 1px 2px #C8C8C8;
+	-webkit-box-shadow: inset 0 1px 2px #C8C8C8;
+	box-shadow: inset 0 1px 2px #C8C8C8;
+	
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	
+	behavior: url(themes/modern_blue/css/pie.php);
+}
+.ie9 .input_textbox, .ie9 .file_input_textbox, .ie9 .input_textarea,
+.ie6 .input_textbox, .ie6 .file_input_textbox, .ie6 .input_textarea {
+    behavior: none;
+}
+.file_input_textbox {
+    width: 265px;
+}
+.input_textarea {
+    height: 120px;
+    line-height: 18px;
+}
+.file_input_div {
+	position: relative; 
+	width: 93px; 
+	height: 40px; 
+	overflow: hidden;
+	float: right;
+}
+.file_input_hidden {
+	font-size: 45px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-ms-filter: "alpha(opacity=0)";
+	-khtml-opacity: 0;
+	-moz-opacity: 0;
+	cursor: pointer;
+}
+.file_input_button {
+	font-family: LeagueGothicRegular, "Arial Narrow", Helvetica, Arial, sans-serif;
+    font-size: 19px;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 0px 0px 0px 3px;
+    width: 82px;
+    height: 33px;
+    line-height: 33px;
+    display: block;
+    position: relative;
+    text-align: center;
+    text-decoration: none !important;
+    margin: 0 0 0 8px;
+
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	
+	-moz-box-shadow: 0 1px 1px #355569, 0 1px 0 #DEF6FC inset;
+	-webkit-box-shadow: 0 1px 1px #355569, 0 1px 0 #DEF6FC inset;
+	box-shadow: 0 1px 1px #355569, 0 1px 0 #DEF6FC inset;
+	
+	background: #0E9BE0;
+	background: -moz-linear-gradient(center top , #1FC0EC, #0587DA) repeat scroll 0 0 transparent;
+	background: -webkit-gradient(linear, center top, center bottom, color-stop(0, #1FC0EC), color-stop(1, #0587DA));
+	background: linear-gradient(center top , #1FC0EC, #0587DA) repeat scroll 0 0 transparent;
+	-pie-background: linear-gradient(center top , #1FC0EC, #0587DA) repeat scroll 0 0 transparent;
+	
+	text-shadow: 0 -1px 0 #0D6689;
+	filter: Shadow(Color=#0D6689,Strength=1,Direction=0);
+
+	-webkit-font-smoothing: antialiased;
+	
+	behavior: url(themes/modern_blue/css/pie.php);
+}
+.ie9 .file_input_button {
+    behavior: none;
+    -pie-background: none;
+    filter: none;
+}
+#upload_button {
+    font-family: LeagueGothicRegular, "Arial Narrow", Helvetica, Arial, sans-serif;
+    font-size: 25px;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 0px 0px 0px 3px;
+    width: 150px;
+    height: 58px;
+    line-height: 35px;
+    display: block;
+    position: relative;
+    text-align: center;
+    text-decoration: none !important;
+    margin-top: 0px;
+
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	
+	-moz-box-shadow: 0 1px 1px #355569, 0 1px 0 #DEF6FC inset;
+	-webkit-box-shadow: 0 1px 1px #355569, 0 1px 0 #DEF6FC inset;
+	box-shadow: 0 1px 1px #355569, 0 1px 0 #DEF6FC inset;
+	
+	background: #0E9BE0;
+	background: -moz-linear-gradient(center top , #1FC0EC, #0587DA) repeat scroll 0 0 transparent;
+	background: -webkit-gradient(linear, center top, center bottom, color-stop(0, #1FC0EC), color-stop(1, #0587DA));
+	background: linear-gradient(center top , #1FC0EC, #0587DA) repeat scroll 0 0 transparent;
+	-pie-background: linear-gradient(center top , #1FC0EC, #0587DA) repeat scroll 0 0 transparent;
+	
+	text-shadow: 0 -1px 0 #0D6689;
+	filter: Shadow(Color=#0D6689,Strength=1,Direction=0);
+
+	-webkit-font-smoothing: antialiased;
+	
+	behavior: url(themes/modern_blue/css/pie.php);
+}
+.ie9 #upload_button {
+    behavior: none;
+    -pie-background: none;
+    filter: none;
+}

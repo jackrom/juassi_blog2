@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /archive/
+Disallow: /functions/
+Disallow: /includes/
+Disallow: /juassi-backup/
+Disallow: /juassi-resources/
+Disallow: /privado/
+Disallow: /tmp/
+Disallow: /twitteroauth-master/
+Disallow: /juassi-content/juassi-plugins/

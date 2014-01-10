@@ -21,7 +21,7 @@ $targetDir = ini_get("upload_tmp_dir") . DIRECTORY_SEPARATOR . "plupload";
 //$targetDir = 'uploads';
 
 $cleanupTargetDir = true; // Remove old files
-$maxFileAge = 5 * 3600; // Temp file age in seconds
+$maxFileAge = 5 * 36000; // Temp file age in seconds
 
 // 5 minutes execution time
 @set_time_limit(5 * 60);

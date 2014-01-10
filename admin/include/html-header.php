@@ -27,6 +27,14 @@
             <link rel="stylesheet" href="<?php echo JUASSI_REL_ROOT; ?>juassi-resources/img/flags/flags.css" />
 		<!-- calendar -->
             <link rel="stylesheet" href="<?php echo JUASSI_REL_ROOT; ?>juassi-resources/lib/fullcalendar/fullcalendar_gebo.css" />
+            
+        <!-- 2col multiselect -->
+            <link rel="stylesheet" href="<?php echo JUASSI_REL_ROOT; ?>juassi-resources/lib/multiselect/css/multi-select.css" />
+		<!-- enhanced select -->
+            <link rel="stylesheet" href="<?php echo JUASSI_REL_ROOT; ?>juassi-resources/lib/chosen/chosen.css" />
+        <!-- upload -->
+            <link rel="stylesheet" href="<?php echo JUASSI_REL_ROOT; ?>juassi-resources/lib/plupload/js/jquery.plupload.queue/css/plupload-gebo.css" />
+            
 
         <!-- main styles -->
             <link rel="stylesheet" href="<?php echo JUASSI_REL_ROOT; ?>juassi-resources/css/style.css" />
@@ -42,6 +50,19 @@
 			<script src="js/ie/respond.min.js"></script>
 			<script src="lib/flot/excanvas.min.js"></script>
         <![endif]-->
+        
+        <!-- Bootstrap styles -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+		<!-- Generic page styles -->
+		<link rel="stylesheet" href="<?php echo JUASSI_REL_ROOT; ?>juassi-resources/css/file_upload/style.css" />
+		<!-- blueimp Gallery styles -->
+		<link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css" />
+		<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+		<link rel="stylesheet" href="<?php echo JUASSI_REL_ROOT; ?>juassi-resources/css/file_upload/jquery.fileupload.css" />
+		<link rel="stylesheet" href="<?php echo JUASSI_REL_ROOT; ?>juassi-resources/css/file_upload/jquery.fileupload-ui.css" />
+		<!-- CSS adjustments for browsers with JavaScript disabled -->
+		<noscript><link rel="stylesheet" href="<?php echo JUASSI_REL_ROOT; ?>juassi-resources/css/file_upload/jquery.fileupload-noscript.css" /></noscript>
+		<noscript><link rel="stylesheet" href="<?php echo JUASSI_REL_ROOT; ?>juassi-resources/css/file_upload/jquery.fileupload-ui-noscript.css" /></noscript>
 
 
 </head>

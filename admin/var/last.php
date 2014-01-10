@@ -255,6 +255,46 @@ $last =
           "1389151709|0|1"
         ),
         "search" => "-"
+      ),
+      array(
+        "time" => 1389245662, "prx_ip" => "unknown", "ip" => "127.0.0.1", "dns" => "localhost", "agent" => "unknown", "referer" => "unknown", "page" => 0, "visits" => 2, "browser" => "other", "os" => "other", "ext" => "unknown", "id" => 32, 
+        "views" =>
+        array(
+          "1389245208|0|2"
+        ),
+        "search" => "-", "off" => 1
+      ),
+      array(
+        "time" => 1389252514, "prx_ip" => "unknown", "ip" => "127.0.0.1", "dns" => "localhost", "agent" => "unknown", "referer" => "unknown", "page" => 0, "visits" => 1, "browser" => "other", "os" => "other", "ext" => "unknown", "id" => 33, 
+        "views" =>
+        array(
+          "1389252514|0|1"
+        ),
+        "search" => "-"
+      ),
+      array(
+        "time" => 1389273853, "prx_ip" => "unknown", "ip" => "127.0.0.1", "dns" => "localhost", "agent" => "unknown", "referer" => "unknown", "page" => 0, "visits" => 1, "browser" => "other", "os" => "other", "ext" => "unknown", "id" => 34, 
+        "views" =>
+        array(
+          "1389273853|0|1"
+        ),
+        "search" => "-"
+      ),
+      array(
+        "time" => 1389317270, "prx_ip" => "unknown", "ip" => "127.0.0.1", "dns" => "localhost", "agent" => "unknown", "referer" => "unknown", "page" => 0, "visits" => 1, "browser" => "other", "os" => "other", "ext" => "unknown", "id" => 35, 
+        "views" =>
+        array(
+          "1389317270|0|1"
+        ),
+        "search" => "-"
+      ),
+      array(
+        "time" => 1389364742, "prx_ip" => "unknown", "ip" => "127.0.0.1", "dns" => "localhost", "agent" => "unknown", "referer" => "unknown", "page" => 0, "visits" => 1, "browser" => "other", "os" => "other", "ext" => "unknown", "id" => 36, 
+        "views" =>
+        array(
+          "1389364742|0|1"
+        ),
+        "search" => "-"
       )
     )
   );

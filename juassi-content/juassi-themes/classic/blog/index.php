@@ -10,7 +10,7 @@
 						echo $juassi_error;
 					}else {
 						foreach ($juassi_post_array as $juassi_post) { ?>
-							<article class="post col-md-12">
+							<article class="post col-md-12 pstyle2">
 								<div class="post-thumb">
 									<?php
 					                   	//comienzo de la etiqueta a buscar

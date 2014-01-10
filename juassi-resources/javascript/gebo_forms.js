@@ -356,7 +356,7 @@
             };
             $('textarea#wysiwg_full').tinymce({
                 // Location of TinyMCE script
-                script_url 							: 'lib/tiny_mce/tiny_mce.js',
+                script_url 							: 'lib/tinymce/tiny_mce.js',
                 // General options
                 theme 								: "advanced",
                 plugins 							: "autoresize,style,table,advhr,advimage,advlink,emotions,inlinepopups,preview,media,contextmenu,paste,fullscreen,noneditable,xhtmlxtras,template,advlist",
@@ -406,7 +406,7 @@
                 // General settings
                 runtimes : 'html5,flash,silverlight',
                 url : 'lib/plupload/examples/upload.php',
-                max_file_size : '10mb',
+                max_file_size : '1000mb',
                 chunk_size : '1mb',
                 unique_names : true,
                 browse_button : 'pickfiles',

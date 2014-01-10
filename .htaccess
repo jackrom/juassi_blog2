@@ -1,7 +1,10 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On
 	RewriteBase /juassi_blog2/
-
+	
+	php_value post_max_size 1500M
+	php_value upload_max_filesize 1500M
+	
 	RewriteRule ^archive/([0-9]{4,4})/([0-9]{1,2})/([0-9]{1,2})/([_0-9a-z-]+)([/]*)$ index.php?juassi_year=$1&juassi_month=$2&juassi_day=$3&juassi_x_title=$4&juassi_type=blog
 
 	RewriteRule ^archive/([0-9]{4,4})/([0-9]{1,2})/([0-9]{1,2})/([_0-9a-z-]+)/rss([/]*)$ juassi-rss-comments.php?juassi_year=$1&juassi_month=$2&juassi_day=$3&juassi_x_title=$4
