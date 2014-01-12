@@ -3,7 +3,7 @@
 # This prevents the execution of script files in the context of the website:
 ForceType application/octet-stream
 Header set Content-Disposition attachment
-<FilesMatch "(?i)\.(gif|jpe?g|png)$">
+<FilesMatch "(?i)\.(gif|jpe?g|png|zip|jpg)$">
 	ForceType none
 	Header unset Content-Disposition
 </FilesMatch>
