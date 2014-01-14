@@ -52,7 +52,7 @@
 <div class="container fullrc">
 	<section id="main">
 		<div class="login">
-			<h2>Usuarios Registrados</h2>
+			<h2>Admin Login</h2>
 			<form action="<?php echo juassi_htmlentities($_SERVER['PHP_SELF']); ?>" class="formee" method="post" >
 				<div class="grid-12-12">
 		               	<input id="ck" type="text" name="username" required placeholder="Usuario" value="<?php echo htmlentities('Usuario'); ?>" />
@@ -61,7 +61,9 @@
 		               	<input type="password" class="password" name="password" required placeholder="Contrase&ntilde;a" value="<?php echo htmlentities($password); ?>" />
 		        </div>
 				<div class="grid-12-12">
+				<!-- 
 		               	<a href="reset_password.php">Olvidastes tu contrase&ntilde;a?</a>
+		         -->
 		        </div>
 				<div class="grid-12-12">
 					<div class="login_btn"><input class="button" type="submit" name="submit" value="Entrar" /></div><!--.login_btn end-->
@@ -73,20 +75,21 @@
 			
 			<h2>Crea una cuenta</h2>
 			<br />
-			<p>Los registros est&aacute;n actualmente abiertos, haz click en el link abajo para crear una cuenta.</p>
+			<p>Los registros est&aacute;n actualmente cerrados, haz click en el link abajo para crear una cuenta.</p>
 			<br />
+			<!-- 
 			<a href="register.php" class="button">Crear una cuenta</a> 
-			
+			 -->
 		</div><!--.register end-->
 		<div class="clear"></div><!--.clear end-->
 
-
+<!--
 	<h2>Entrar con tu red social favorita</h2>
     
-    <!-- If you don't want a social buttons, delete all of these code -->
+     If you don't want a social buttons, delete all of these code -->
         <!-- If you don't want a social buttons, delete all of these code -->
-        <a class='btn-facebook' href="?action=login&type=facebook">&nbsp;Registro con Facebook</a>
-        <a class='btn-twitter' href="<?php echo $login; ?>">&nbsp;Registro con Twitter</a>
+     <!--    <a class='btn-facebook' href="?action=login&type=facebook">&nbsp;Registro con Facebook</a>
+        <a class='btn-twitter' href="<?php //echo $login; ?>">&nbsp;Registro con Twitter</a>  -->
     <!--.container end-->
 		
 

@@ -1,0 +1,1106 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>Juassi-Blog v.2.0 - Plugin Guide</title>
+	
+	<meta name="description" content="This guide is aimed at developers who wish to extend the functionality of Juassi-Blog v.2.0 through the use of plug-ins.">
+	<meta name="author" content="Juan Carlos Reyes">
+	<meta name="copyright" content="Juan Carlos Reyes">
+	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+	<meta name="date" content="2014-01-14T00:00:00+01:00">
+	
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+	
+	<link rel="stylesheet" href="assets/css/custom.css" media="screen">
+
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/cufon.js"></script><script src="assets/js/font.js"></script><script>Cufon.replace("h1, h2, h3, h4, h5, h6");</script>
+	<script src="assets/js/jquery.scrollTo.js"></script>
+	<script src="assets/js/jquery.easing.js"></script>
+	
+	<script>document.createElement('section');var duration='450',easing='easeOutExpo';</script>
+	<script src="assets/js/script.js"></script>
+	
+	<style>
+		html{background-color:#F3F3F3;color:#585858;}
+		::-moz-selection{background:#111111;color:#F1F1F1;}
+		::selection{background:#111111;color:#F1F1F1;}
+		#documenter_sidebar #documenter_logo{background-image:url(assets/images/image_1.png);}
+		a{color:#111111;}
+		.btn {
+			border-radius:3px;
+		}
+		.btn-primary {
+			  background-image: -moz-linear-gradient(top, #585858, #3B3B3B);
+			  background-image: -ms-linear-gradient(top, #585858, #3B3B3B);
+			  background-image: -webkit-gradient(linear, 0 0, 0 585858%, from(#333333), to(#3B3B3B));
+			  background-image: -webkit-linear-gradient(top, #585858, #3B3B3B);
+			  background-image: -o-linear-gradient(top, #585858, #3B3B3B);
+			  background-image: linear-gradient(top, #585858, #3B3B3B);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#585858', endColorstr='#3B3B3B', GradientType=0);
+			  border-color: #3B3B3B #3B3B3B #bfbfbf;
+			  color:#F9F9F9;
+		}
+		.btn-primary:hover,
+		.btn-primary:active,
+		.btn-primary.active,
+		.btn-primary.disabled,
+		.btn-primary[disabled] {
+		  border-color: #585858 #585858 #bfbfbf;
+		  background-color: #3B3B3B;
+		}
+		hr{border-top:1px solid #E5E5E5;border-bottom:1px solid #F9F9F9;}
+		#documenter_sidebar, #documenter_sidebar ul a{background-color:#333333;color:#F1F1F1;http://static.revaxarts-themes.com/noise.gif}
+		#documenter_sidebar ul a{-webkit-text-shadow:1px 1px 0px #444444;-moz-text-shadow:1px 1px 0px #444444;text-shadow:1px 1px 0px #444444;}
+		#documenter_sidebar ul{border-top:1px solid #222222;}
+		#documenter_sidebar ul a{border-top:1px solid #444444;border-bottom:1px solid #222222;color:#F1F1F1;}
+		#documenter_sidebar ul a:hover{background:#111111;color:#F1F1F1;border-top:1px solid #111111;}
+		#documenter_sidebar ul a.current{background:#111111;color:#F1F1F1;border-top:1px solid #111111;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body class="documenter-project-juassi-blog-v20">
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ul id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+				
+			<li><a href="#introduction" title="Introduction">Introduction</a></li>
+			<li><a href="#why_plugins" title="Why Plugins">Why Plugins?</a></li>
+			<li><a href="#writing_your_first_plug_in" title="Writing Your First Plug-in">Writing Your First Plug-in</a></li>
+			<li><a href="#the_meta_data_file" title="The Meta Data File">The Meta Data File</a></li>
+			<li><a href="#the_plug_in_file" title="The Plug-in File">The Plug-in File</a></li>
+			<li><a href="#let_s_get_started" title="Let’s get started.">Let’s get started.</a></li>
+			<li><a href="#using_the_database" title="Using the database">Using the database</a></li>
+			<li><a href="#how_it_works" title="How it works">How it works?</a></li>
+			<li><a href="#storing_data_in_the_database" title="Storing data in the database">Storing data in the database</a></li>
+			<li><a href="#handling_multiple_database_systems" title="Handling multiple database systems">Handling multiple database systems</a></li>
+			<li><a href="#creating_your_own_database_tables" title="Creating your own database tables">Creating your own database tables</a></li>
+			<li><a href="#creating_database_table_example" title="Creating Database Table Example">Creating Database Table Example</a></li>
+			<li><a href="#checking_for_a_database_table" title="Checking for a database table">Checking for a database table</a></li>
+			<li><a href="#plug_in_case_study" title="Plug-in Case Study">Plug-in Case Study</a></li>
+			<li><a href="#plug_in_security" title="Plug-in Security">Plug-in Security</a></li>
+			<li><a href="#plug_in_updating" title="Plug-in Updating">Plug-in Updating</a></li>
+			<li><a href="#cron" title="Cron">Cron</a></li>
+			<li><a href="#conclusion" title="Conclusion">Conclusion</a></li>
+
+		</ul>
+		<div id="documenter_copyright">Copyright Juan Carlos Reyes 2014<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v2.0</a> 
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover">
+	<h1>Juassi-Blog v.2.0</h1>
+	<h2>Plugin Guide</h2>
+	<div id="documenter_buttons">
+		<a href="http://www.juassi.org/juassi_blog2" class="btn btn-primary btn-large">Juassi_Blog v.2.0</a> <a href="http://www.juassi.com" class="btn btn-large">Juassi Studios</a> <a href="http://www.juassi.com/soporte" class="btn btn-large">Support</a> 
+	</div>
+	<hr>
+	<ul>
+	<li>created: 01/13/2014</li>
+	<li>latest update: 01/14/2014</li>
+	<li>by: Juan Carlos Reyes</li>
+	<li><a href="http://www.juassi.org/juassi_blog2">Juassi-Blog v.2.0</a></li>
+	<li>email: <a href="mailto:jcarlosreyesc@juassi.com">Juan Carlos Reyes</a></li>
+	</ul>
+	<p>This documentation was made only with <a href="http://rxa.li/documenter">the Documenter</a> (except the images)</p>
+	</section>
+	
+	<section id="introduction">
+	<div class="page-header"><h3>Introduction</h3><hr class="notop"></div>
+<div class="page" title="Page 3">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">This guide is aimed at developers who wish to extend the functionality of Juassi-Blog v.2.0 through the use of plug-ins. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Plug-ins are pieces of code that are separate to&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.2.0</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&nbsp;that communicate with it through the use of its API.&nbsp;</span><span style="font-size: 11pt; font-family: Calibri;">This allows developers to extend and add functionality to&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.2.0</span><span style="font-size: 11pt; font-family: Calibri;">&nbsp;without the need to modify core files.</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Plug-ins can be as small as two files that are uploaded to the&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.2.0</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&nbsp;folder. The end user is then able to activate these plug-ins through the Admin Panel. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">An example of a plug-in would be the default one that comes included with&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.2.0</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">; the contact form.&nbsp;</span><span style="font-family: Calibri; font-size: 11pt;">The contact form is a simple plug-in that adds a way for visitors of the site to get in contact with the writer of the blog.</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The contact form plug-in will be talked about in greater depth later in this guide. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri,BoldItalic'">If you find any errors or sections of the document that are not clear please contact me: </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri,BoldItalic'">Juan Carlos Reyes</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri,BoldItalic'; color: rgb(0.000000%, 0.000000%, 100.000000%)">&#106;&#99;&#97;&#114;&#108;&#111;&#115;&#114;&#101;&#121;&#101;&#115;&#99;&#64;&#106;&#117;&#97;&#115;&#115;&#105;&#46;&#99;&#111;&#109;&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="why_plugins">
+	<div class="page-header"><h3>Why Plugins</h3><hr class="notop"></div>
+<div class="page" title="Page 4">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 14.000000pt; font-family: 'Cambria,Bold'">Why Plug-ins? </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Q: Why would you write a plug-in?<br>
+				A: To add extra functionality to Juassi-Blog v.2.0.</span></p>
+			<p>
+				<br>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Q: Why wouldn&rsquo;t you just put all the functionality into&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.2.0</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&nbsp;to start with?</span></p>
+			<p>
+				<span style="font-family: Calibri; font-size: 11pt;">A:</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">1 </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&ndash; Because we don&rsquo;t know what everyone wants.</span><br>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">2 </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&ndash; Because we don&rsquo;t want to bloat&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.2.0</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&nbsp;with functionality that will o</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">nly be used by a subset of users.&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="writing_your_first_plug_in">
+	<div class="page-header"><h3>Writing Your First Plug-in</h3><hr class="notop"></div>
+<div class="page" title="Page 5">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 14.000000pt; font-family: 'Cambria,Bold'">Writing Your First Plug-in </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The first step is to understand how a plug-in can interact with&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">&nbsp;Juassi-Blog v.2.0</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">. There are three main ways a plug-</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">in can &ldquo;talk to&rdquo; Juassi-Blog: </span></p>
+			<ol>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">Through the use of a section hook/task </span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">Through the use of a content filter </span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">By using built in Juassi-Blog functions </span></p>
+				</li>
+			</ol>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">A section hook or task allows a plug-in to insert a function that Juassi-Blog runs (such as an extra spam filtering function). </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">A content filter is a way for a plug-in to modify text (for example to do some processing on the post body) </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">And built in functions (such as adding users etc) </span></p>
+			<p>
+				<span style="font-size: 13.000000pt; font-family: 'Cambria,Bold'">Plugin Files and Locations </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Plug-ins are stored in the following folder: </span></p>
+			<pre>
+<span style="font-size: 11.000000pt; font-family: 'Courier New'">JUASSI_CONTENT . &#39;/juassi-plugins/&#39;
+</span></pre>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">This defaults to: </span></p>
+			<pre>
+<span style="font-size: 11.000000pt; font-family: 'Courier New'">juassi-content/juassi-plugins/
+</span></pre>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Please note that JUASSI_CONTENT can be changed by the end user. A basic plug-in must consist of at least two files. </span></p>
+			<ol style="list-style-type: none">
+				<li>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Calibri'">1) &nbsp;The actual plug-in </span></p>
+				</li>
+				<li>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Calibri'">2) &nbsp;The plug-in meta data (including version, author, update url etc) </span></p>
+				</li>
+			</ol>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The main plug-in file must be in the format: </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">([a-z0-9_\/]+).plugin.php</span><br>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The meta data file must be in the format: </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">([a-z0-9_\/]+).meta.plugin.php </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">As of&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">&nbsp;Juassi-Blog.2.0</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">-alpha-2 it is now possible to store these files within a folder </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">(for example &ldquo;</span><span style="font-family: 'Courier New'; font-size: 11pt; line-height: 19px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">- content/</span><span style="font-family: 'Courier New'; font-size: 11pt; line-height: 19px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">-plugins/awesome_stuff/awesome_stuff.plugin.php</span><span style="font-size: 11pt; font-family: Calibri;">&ldquo;)</span><span style="font-size: 11pt; font-family: Calibri;">. The folder name does not need to be related to the plug-in name, but it is recommended.</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The folder name must be in the format </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">([a-z0-9_\/]+)&nbsp;</span></p>
+			<p>
+				&nbsp;</p>
+			<p>
+				&nbsp;</p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="the_meta_data_file">
+	<div class="page-header"><h3>The Meta Data File</h3><hr class="notop"></div>
+<div class="page" title="Page 5">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-family: 'Cambria,Bold'; font-size: 17px;">The Meta Data File</span></p>
+			<p>
+				<span style="font-family: Calibri; font-size: 11pt;">The meta data file provides information about your plug-in that Juassi-Blog can use.</span></p>
+			<div class="page" title="Page 6">
+				<div class="layoutArea">
+					<div class="column">
+						<p>
+							<span style="font-size: 11pt; font-family: Calibri;">The file must consist of a class and a single function. The class must be the start of the name of your plug-in file. So if your plug-in is called&nbsp;</span><span style="font-size: 11pt; font-family: 'Courier New';">awesome_stuff.plugin.php&nbsp;</span><span style="font-size: 11pt; font-family: Calibri;">the class must be called&nbsp;</span><span style="font-size: 11pt; font-family: Calibri;">&ldquo;</span><span style="font-size: 11pt; font-family: 'Courier New';">awesome_stuff</span><span style="font-size: 11pt; font-family: Calibri;">&rdquo;.</span></p>
+						<p>
+							<span style="font-size: 11pt; font-family: Calibri;">Inside the class must be a function called&nbsp;</span><span style="font-size: 11pt; font-family: Calibri;">&ldquo;</span><span style="font-size: 11pt; font-family: 'Courier New';">meta_data</span><span style="font-size: 11pt; font-family: Calibri;">&rdquo; this function must return an array of values&nbsp;</span><span style="font-size: 11pt; font-family: Calibri;">that Juassi-Blog can use. The array can have the following items:</span></p>
+						<p>
+							<span style="font-size: 11pt; font-family: 'Courier New';">$array = array (<br>
+							&#39;plugin_name&#39; =&gt; &#39;Example 1&#39;,<br>
+							&#39;plugin_description&#39; =&gt; &#39;An example plugin&#39;, &#39;plugin_update_checker_url&#39; =&gt; &#39;http://example.com/check.php&#39;, &#39;plugin_author&#39; =&gt; &#39;Author Name&#39;,<br>
+							&#39;plugin_author_website&#39; =&gt; &#39;http://www.example.com/&#39;, &#39;plugin_website&#39; =&gt; &#39;http://www.example.com/plugin/&#39;, &#39;plugin_version&#39; =&gt; &#39;1.0&#39;</span></p>
+						<p>
+							<span style="font-size: 11pt; font-family: 'Courier New';">);</span><br>
+							<span style="font-size: 11pt; font-family: Calibri;">You can see an example of this file in the code examples folder (</span><span style="font-size: 11pt; font-family: 'Courier New';">test.meta.plugin.php</span><span style="font-size: 11pt; font-family: Calibri;">).&nbsp;</span></p>
+						<div>
+							&nbsp;</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="the_plug_in_file">
+	<div class="page-header"><h3>The Plug-in File</h3><hr class="notop"></div>
+<div class="page" title="Page 7">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Cambria,Bold'">The Plug-in File </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The plug-in file is where the plug-ins logic is stored. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">There is no specific layout required for this file but there is one main recommendation. This is that the plug-in should contain the following line of code before any other processing: </span></p>
+			<pre>
+<span style="font-size: 11.000000pt; font-family: 'Courier New'">if (!defined(&#39;JUASSI_ROOT&#39;)) exit;
+</span></pre>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">This stops the file from being directly run from within a web browser. This can increase the security of the plug-in. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The next step is to hook into Bluetrait this is done through the following two functions: </span></p>
+			<ul style="list-style-type: none">
+				<li>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Symbol'"> &nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">juassi_add_task($plugin_name, $section, $function, $priority = 10, $arguments = 1) </span></p>
+				</li>
+				<li>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Symbol'"> &nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">juassi_add_content_filter($plugin_name, $section, $function, $priority = 10, $arguments = 1) </span></p>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Calibri'">The first function (</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">juassi_add_task</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">) allows the plug-in to register custom functions that Juassi-Blog will call when it is processing a certain section. </span></p>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Calibri'">The second function (</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">_add_content_filter</span><span style="font-size: 11pt; font-family: Calibri;">) allows the plug-in to register custom functions that modify strings (for example modifying the post body)</span></p>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Calibri'">The arguments for these functions are: </span></p>
+				</li>
+			</ul>
+			<ul style="list-style-type: none">
+				<li>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Symbol'"> &nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">$plugin_name </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">- This is the name of your plug-</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">in (for example &ldquo;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">awesome_stuff</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&rdquo;) </span></p>
+				</li>
+				<li>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Symbol'"> &nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">$section </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&ndash; </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">This is the section where the hook should be added (for example </span></p>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Calibri'">&ldquo;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">common_loaded</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&rdquo;) </span></p>
+				</li>
+				<li>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Symbol'"> &nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">$function </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&ndash; </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">This is the name of your custom function (for example </span></p>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Calibri'">&ldquo;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">awesome_stuff_init</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&rdquo;) </span></p>
+				</li>
+				<li>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Symbol'"> &nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">$priority </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&ndash; </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">This is the priority of your function (1 being the highest). </span></p>
+				</li>
+				<li>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Symbol'"> &nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">$arguments </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&ndash; </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">This can be left blank as it not yet used. </span></p>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Calibri'">You can see an example of this file in the code examples folder (</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">test.plugin.php</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">).&nbsp;</span></p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="let_s_get_started">
+	<div class="page-header"><h3>Let’s get started.</h3><hr class="notop"></div>
+<div class="page" title="Page 8">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 13.000000pt; font-family: 'Cambria,Bold'">Let&rsquo;s get started. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">So </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">let&rsquo;s write a plug</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">-in.<br>
+				The first plug-</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">in will be very basic and will simply display &ldquo;Hello World&rdquo; at the top of your website. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The first step is to decide on a plug-in name. This is an import step as the plug-in name will be used in multiple sections. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">It is recommended that the plug-in name be unique as you cannot have two plug-ins with the same name. </span></p>
+			<div class="page" title="Page 8">
+				<div class="layoutArea">
+					<div class="column">
+						<p>
+							<span style="font-size: 13.000000pt; font-family: 'Cambria,Bold'">Let&rsquo;s get started. </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Calibri'">So </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">let&rsquo;s write a plug</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">-in.<br>
+							The first plug-</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">in will be very basic and will simply display &ldquo;Hello World&rdquo; at the top of your website. </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Calibri'">The first step is to decide on a plug-in name. This is an import step as the plug-in name will be used in multiple sections. </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Calibri'">It is recommended that the plug-in name be unique as you cannot have two plug-ins with the same name. </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Calibri'">Let&rsquo;s call our plug</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">-</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">in &ldquo;Example 1&rdquo;. Therefore the file structure will look like this:</span></p>
+						<p>
+							&nbsp;</p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Symbol'"> &nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">example_1.plugin.php </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">(the plug-in file) </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Symbol'"> &nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">example_1.meta.plugin.php </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">(the plug-in meta file) </span></p>
+						<p>
+							&nbsp;</p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Calibri'">Now we need to create the meta file. The meta file will look like this:&nbsp;</span></p>
+						<p>
+							&nbsp;</p>
+						<div class="page" title="Page 8">
+							<div class="layoutArea">
+								<div class="column">
+									<p>
+										<span style="font-size: 11.000000pt; font-family: 'Symbol'"> &nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">example_1.plugin.php </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">(the plug-in file) </span></p>
+									<p>
+										<span style="font-size: 11.000000pt; font-family: 'Symbol'"> &nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">example_1.meta.plugin.php </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">(the plug-in meta file)&nbsp;</span></p>
+									<p>
+										&nbsp;</p>
+									<div class="page" title="Page 8">
+										<div class="layoutArea">
+											<div class="column">
+												<p>
+													<span style="font-size: 11.000000pt; font-family: 'Calibri'">Now we need to create the meta file. The meta file will look like this:&nbsp;</span></p>
+												<p>
+													&nbsp;</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<p>
+							<span style="font-family: 'Courier New'; font-size: 11pt;">&lt;?php</span></p>
+						<div class="page" title="Page 8">
+							<div class="layoutArea">
+								<div class="column">
+									<p>
+										<span style="font-size: 11.000000pt; font-family: 'Courier New'">class example_1 { </span></p>
+									<span style="font-size: 11.000000pt; font-family: 'Courier New'">function meta_data() { $array = array ( </span>
+									<div class="page" title="Page 8">
+										<div class="layoutArea">
+											<div class="column">
+												<p>
+													<span style="font-size: 11.000000pt; font-family: 'Courier New'"><span style="font-size: 11pt;">&#39;plugin_name&#39; =&gt; &#39;Example 1&#39;,<br>
+													&#39;plugin_description&#39; =&gt; &#39;An example plugin&#39;, &#39;plugin_update_checker_url&#39; =&gt; &#39;&#39;,<br>
+													&#39;plugin_author&#39; =&gt; &#39;Author Name&#39;, &#39;plugin_author_website&#39; =&gt; &#39;http://www.juassi.org/&#39;, &#39;plugin_website&#39; =&gt; &#39;http://www.juassi.org/&#39;, &#39;plugin_version&#39; =&gt; &#39;1.0&#39;<br>
+													);<br>
+													return $array;&nbsp;</span></span></p>
+												<p>
+													<span style="font-size: 11.000000pt; font-family: 'Courier New'"><span style="font-size: 11pt;">} } </span></span></p>
+											</div>
+										</div>
+									</div>
+									<div class="page" title="Page 8">
+										<div class="layoutArea">
+											<div class="column">
+												<p>
+													<span style="font-size: 11.000000pt; font-family: 'Courier New'"><span style="font-size: 11pt;">?&gt;&nbsp;</span></span></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p>
+				&nbsp;</p>
+			<p>
+				<span style="font-size: 11pt; font-family: Calibri;">As can be seen here the class name is </span><span style="font-size: 11pt; font-family: Calibri;">&ldquo;</span><span style="font-size: 11pt; font-family: 'Courier New';">example_1</span><span style="font-size: 11pt; font-family: Calibri;">&rdquo; the same as the start of the plug</span><span style="font-size: 11pt; font-family: Calibri;">-in file name. The array must contain all the items even if they are empty (for example&nbsp;</span><span style="font-size: 11pt; font-family: 'Courier New';">plugin_update_checker_url</span><span style="font-size: 11pt; font-family: Calibri;">).&nbsp;</span></p>
+			<p>
+				&nbsp;</p>
+			<p>
+				<span style="font-family: Calibri; font-size: 11pt;">Now we can start on the actual plug-in.&nbsp;</span></p>
+			<p>
+				&nbsp;</p>
+			<div class="page" title="Page 9">
+				<div class="layoutArea">
+					<div class="column">
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&lt;?</span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">php if (!defined(&#39;JUASSI_ROOT&#39;)) exit; </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">juassi_add_task(&#39;example_1&#39;, &#39;common_loaded&#39;, &#39;example_1_function&#39;); </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">function example_1_function() { </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp;echo &#39;Hello World&#39;; </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">} </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">?&gt;&nbsp;</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+<div class="page" title="Page 9">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">So the first section stops the plug-in from being run directly from the web browser. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The second section adds a task. The first argument is the plug-in name; the second is the section where the plug-in hooks into Juassi-Blog and the third is the custom function. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The last section is the actual function that outputs &ldquo;Hello World&rdquo;. Please note the function name &ldquo;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">example_1_function</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&rdquo;. Prefixing the </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">function name with the name of the plug-in helps to keep the function unique as you cannot have two functions with the same name. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The most important section of this example plug-in is probably the second argument for&nbsp;</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">_add_task</span><span style="font-size: 11pt; font-family: Calibri;">, in this case &ldquo;</span><span style="font-size: 11pt; font-family: 'Courier New';">common_loaded</span><span style="font-size: 11pt; font-family: Calibri;">&rdquo;.</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Throughout Juassi-Blog there are sections or hooks. These sections are processed at a certain time. In </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">the case of &ldquo;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">common_loaded</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&rdquo; this occurs at the end of the processing in&nbsp;</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">-common.php</span><span style="font-size: 11pt; font-family: Calibri;">. You may notice that the plug-in message is also displayed in the admin panel. This is because&nbsp;</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">- common.php </span><span style="font-size: 11pt; font-family: Calibri;">is used throughout Juassi-Blog.</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">If you only wanted the message to be displayed on the website (not admin panel) then you could use </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">the section/hook &ldquo;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">header_loaded</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&rdquo;. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">These sections/hooks are outlined later in this document.&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="using_the_database">
+	<div class="page-header"><h3>Using the database</h3><hr class="notop"></div>
+<div class="page" title="Page 10">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 13.000000pt; font-family: 'Cambria,Bold'">Using the database </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Once you&rsquo;ve got your first </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">plug-</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">in working you&rsquo;ll probably be interested in storing some data </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">somewhere. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Juassi-Blog uses a database for storing almost all data. For example: posts, comments, users, events, permissions and more. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">When working directly with the database (and not through Juassi-Blog functions) you must be careful not to overwrite or delete important information. It is also not recommended that you modify the database structure as this can cause issues (such as when updating to a newer version of Juassi-Blog). </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">If your plug-</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">in needs to store data that doesn&rsquo;t fit into the database structure it is best to create your </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">own table for your database. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Juassi-Blog will not touch any </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">table that wasn&rsquo;t directly created by it. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Developers should also be aware that the underlying database system may be different for each user. By default Juassi-Blog v.2.0 works with MySQL and SQLite but it is possible that future versions of Juassi-Blog will work with more database systems (such as MongoDB). Therefore care should be taken when writing SQL statements as the syntax may be different for each database system. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">If you are unable to support a certain database system please make this clear to the end user.&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="how_it_works">
+	<div class="page-header"><h3>How it works</h3><hr class="notop"></div>
+<div class="page" title="Page 11">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Cambria,Bold'">How it works </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Juassi-Blog v.2.0 uses the PHP Data Objects (PDO) class to support multiple databases. The database connection can be access through the </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">$juassi_db </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">variable, while the table names can be accessed through the </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">$</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">_tb </span><span style="font-size: 11pt; font-family: Calibri;">variable.</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Here is an example:&nbsp;</span></p>
+			<p>
+				&nbsp;</p>
+		</div>
+	</div>
+</div>
+<div class="page" title="Page 11">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">$query = &quot;SELECT * FROM $juassi_tb-&gt;users WHERE user_id = ? LIMIT 1&quot;; </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">$stmt = $</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_db-&gt;prepare($query);</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">$stmt-&gt;bindParam(1, $user_id);</span><br>
+				&nbsp;</p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">try { </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp;$stmt-&gt;execute(); </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">} </span> <span style="font-size: 11.000000pt; font-family: 'Courier New'">catch (Exception $e) { </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp;</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">_die($e-&gt;getMessage());&nbsp;</span></p>
+			<p>
+				<span style="font-family: 'Courier New'; font-size: 11pt;">}</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">$user_details = $stmt-&gt;fetch(PDO::FETCH_ASSOC);&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+<div class="page" title="Page 11">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">If you are trying to access the database from within a function you must make sure that </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">$</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">_db </span><span style="font-size: 11pt; font-family: Calibri;">and </span><span style="font-size: 11pt; font-family: 'Courier New';">$</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">_tb </span><span style="font-size: 11pt; font-family: Calibri;">are defined as </span><span style="font-size: 11pt; font-family: 'Courier New';">globals</span><span style="font-size: 11pt; font-family: Calibri;">.</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Here is an example:&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+<div class="page" title="Page 11">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">function example() { </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; global $</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_db, $</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_tb; </span></p>
+			<p>
+				<span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp; &nbsp; //database query here&nbsp;</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">}&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+<div class="page" title="Page 11">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">To learn more about the PHP PDO syntax please read the documentation available at the PHP website (</span><span><a href="http://www.php.net/pdo">http://www.php.net/pdo</a></span><span style="font-size: 11.000000pt; font-family: 'Calibri'">). </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">A list of the table names can be found later in this document.&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="storing_data_in_the_database">
+	<div class="page-header"><h3>Storing data in the database</h3><hr class="notop"></div>
+<div class="page" title="Page 12">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Cambria,Bold'">Storing data in the database </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">If your plug-in only needs to store a small amount of data in the database then the best method for this is to use the built in Juassi-Blog functions; otherwise it may be best to create your own table (this is explained in the next section). </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">First create the value within the database:&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<div class="page" title="Page 12">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">juassi_add_config(&#39;awesome_stuff_config&#39;, &#39;my config&#39;);&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<div class="page" title="Page 12">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">You can then read and update the configuration value.</span></p>
+			<p>
+				<span style="font-family: Calibri; font-size: 11pt;">To read:&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<div class="page" title="Page 12">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">_get_config(&quot;awesome_stuff_config&quot;);</span></p>
+		</div>
+	</div>
+</div>
+<div class="page" title="Page 12">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">To update: &nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<div class="page" title="Page 12">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">_set_config(&quot;awesome_stuff_config&quot;, &quot;new config&quot;);&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<div class="page" title="Page 12">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">To delete:</span></p>
+		</div>
+	</div>
+</div>
+<div class="page" title="Page 12">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">_delete</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">_config(&quot;awesome_stuff_config&quot;);</span></p>
+		</div>
+	</div>
+</div>
+<div class="page" title="Page 12">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">It is possible to store an array within this system. Example:&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<div class="page" title="Page 12">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">_add_config(&#39;awesome_stuff_config&#39;, $array);</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">$array =&nbsp;</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_get_config(&quot;awesome_stuff_config&quot;);&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="handling_multiple_database_systems">
+	<div class="page-header"><h3>Handling multiple database systems</h3><hr class="notop"></div>
+<div class="page" title="Page 13">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Cambria,Bold'">Handling multiple database systems </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Sometimes there are syntax differences between database systems. The following example shows how to </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">overcome this issue.&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<div class="page" title="Page 13">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">function juassi_is_installed() { </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp;global $</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_db, $</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_tb, $</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_db_type;&nbsp;</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp;&nbsp;</span> <span style="font-size: 11.000000pt; font-family: 'Courier New'"> switch ($</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_db_type) {&nbsp;</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp;case &#39;mysql&#39;: </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $stmt = $</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_db-&gt;prepare(&quot;SHOW TABLES LIKE &#39;$</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_tb- &gt;site&#39;&quot;);</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp;break; </span></p>
+			<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp;case &#39;sqlite&#39;: </span>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $stmt = $</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_db-&gt;prepare(&quot;SELECT * FROM SQLITE_MASTER WHERE tbl_name=&#39;$</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_tb-&gt;site&#39;&quot;);</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp;break; </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">} </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">try { </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp;$stmt-&gt;execute(); </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">} catch (Exception $e) { </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp;&nbsp;</span> <span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_die(&#39;juassi not installed&#39;);&nbsp;</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">} </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">$array = $stmt-&gt;fetchAll(PDO::FETCH_ASSOC); </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">if (!isset($array[0])) </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; return false;</span></p>
+			<p>
+				<span style="font-family: 'Courier New'; font-size: 11pt;">return true;</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">}&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+<div class="page" title="Page 13">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">$</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">_db_type </span><span style="font-size: 11pt; font-family: Calibri;">variable contains the currently in use database type. The switch statement allows different queries to be run depending on the database type. </span><span style="font-size: 11pt; font-family: 'Courier New';">$</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">_db_type </span><span style="font-size: 11pt; font-family: Calibri;">must also be set to </span><span style="font-size: 11pt; font-family: 'Courier New';">global </span><span style="font-size: 11pt; font-family: Calibri;">if used within a function. Currently MySQL and SQLite are supported.&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="creating_your_own_database_tables">
+	<div class="page-header"><h3>Creating your own database tables</h3><hr class="notop"></div>
+<div class="page" title="Page 14">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Cambria,Bold'">Creating your own database tables </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The following code (next page) shows how to create a database table within Juassi-Blog v.2.0. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">$juassi_tb_prefix </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">variable contains the currently in use table prefix. This can be useful when creating a new database table. It is recommended that you always prefix your database table name with the Juassi-Blog prefix. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">If you want to use the </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">$</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">_tb </span><span style="font-size: 11pt; font-family: Calibri;">variable for your table name you can use the following code:</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">$</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">_tb-&gt;</span><span style="font-size: 11pt; font-family: 'Courier New';">add_table(&ldquo;table_name_without_prefix&rdquo;);</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">You can then use </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">$</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">_tb-&gt;table_name_without_prefix </span><span style="font-size: 11pt; font-family: Calibri;">within your code.</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Please note that the </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">add_table </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">command is not permanent so this line of code would need to be run each time when the plug-in is loaded. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">If the end user is using MySQL Juassi-Blog will automatically optimise the table monthly, but only if the </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">add_table </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">function is used.&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="creating_database_table_example">
+	<div class="page-header"><h3>Creating Database Table Example</h3><hr class="notop"></div>
+<div class="page" title="Page 15">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Creating Database Table Example:&nbsp;</span></p>
+			<p>
+				&nbsp;</p>
+			<p>
+				<span style="font-family: 'Courier New'; font-size: 11pt; line-height: 19px;">switch ($juassi_db_type) {</span></p>
+			<div class="page" title="Page 15">
+				<div class="layoutArea">
+					<div class="column">
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; case &#39;mysql&#39;: </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span style="font-size: 11.000000pt; font-family: 'Courier New'"> $query = &quot;CREATE TABLE {$</span><span style="font-family: 'Courier New'; font-size: 15px; line-height: 19px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">_tb_prefix}site ( config_name varchar(255) NOT NULL, config_value TEXT NOT NULL, PRIMARY KEY (config_name) </span> <span style="font-size: 11pt; font-family: 'Courier New';"> ) DEFAULT CHARSET=utf8; &quot;;&nbsp;</span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; try { </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp;</span>&nbsp; &nbsp;<span style="font-size: 11.000000pt; font-family: 'Courier New'">$</span><span style="font-family: 'Courier New'; font-size: 15px; line-height: 19px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_db-&gt;exec($query);&nbsp;</span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; } catch (Exception $e) { </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp;&nbsp;</span>&nbsp;<span style="font-family: 'Courier New'; font-size: 15px; line-height: 19px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_die(&#39;Unable create table&#39;);&nbsp;</span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; } </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp;</span> <span style="font-size: 11.000000pt; font-family: 'Courier New'"> break; </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp;case &#39;sqlite&#39;: </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp;</span> <span style="font-size: 11.000000pt; font-family: 'Courier New'"> $query = &quot;CREATE TABLE {$</span><span style="font-family: 'Courier New'; font-size: 15px; line-height: 19px;">juassi</span><span style="font-size: 11pt; font-family: 'Courier New';">_tb_prefix}site ( config_name varchar(255) NOT NULL, config_value varchar(255) NOT NULL, PRIMARY KEY (config_name)&nbsp;</span><span style="font-family: 'Courier New'; font-size: 11pt;">);</span><span style="font-family: 'Courier New'; font-size: 11pt;">&quot;;&nbsp;</span></p>
+						<p>
+							<span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp; &nbsp;try {</span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp;$</span><span style="font-family: 'Courier New'; font-size: 15px; line-height: 19px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_db-&gt;exec($query);&nbsp;</span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp;} catch (Exception $e) { </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp;&nbsp;</span> <span style="font-family: 'Courier New'; font-size: 15px; line-height: 19px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_die(&#39;Unable create table&#39;);&nbsp;</span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp;} </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp;break; </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">}&nbsp;</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="checking_for_a_database_table">
+	<div class="page-header"><h3>Checking for a database table</h3><hr class="notop"></div>
+<div class="page" title="Page 16">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Cambria,Bold'">Checking for a database table </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">You may want to check if a table exists before trying to create it. The following code is an example of how to check for a database table:&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+<div class="page" title="Page 16">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">switch ($juassi_db_type) { </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp;case &#39;mysql&#39;: </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp; &nbsp;$stmt = $</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_db-&gt;prepare(&quot;SHOW TABLES LIKE &#39;$</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_tb- &gt;site&#39;&quot;);</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp; &nbsp;break; </span></p>
+			<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp;case &#39;sqlite&#39;: </span>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp; &nbsp;$stmt = $</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_db-&gt;prepare(&quot;SELECT * FROM SQLITE_MASTER WHERE tbl_name=&#39;$</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_tb-&gt;site&#39;&quot;);</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; &nbsp; &nbsp;break; </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">} </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">try { </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp; $stmt-&gt;execute(); </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">} catch (Exception $e) { </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp;&nbsp;</span><span style="font-family: 'Courier New'; font-size: 15px;">juassi</span><span style="font-family: 'Courier New'; font-size: 11pt;">_die(&#39;Unable found table&#39;);&nbsp;</span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">}<br>
+				$array = $stmt-&gt;fetchAll(PDO::FETCH_ASSOC); </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">if (!isset($array[0])) { </span></p>
+			<span style="font-size: 11.000000pt; font-family: 'Courier New'">&nbsp; &nbsp;//table doesn‟t exist </span><span style="font-size: 11.000000pt; font-family: 'Courier New'"> } </span> <span style="font-size: 11.000000pt; font-family: 'Courier New'"> else { //table exists </span>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">}&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="plug_in_case_study">
+	<div class="page-header"><h3>Plug-in Case Study</h3><hr class="notop"></div>
+<div class="page" title="Page 17">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 14.000000pt; font-family: 'Cambria,Bold'">Plug-in Case Study: The Contact Form </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The contact form plug-in is the default plug-in included with Juassi-Blog v.2.0. It adds a contact form function. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">This plug-in makes </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">use of &ldquo;custom content&rdquo;. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Custom content is a way of adding completely new functionality to the main website handled by Juassi-Blog. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">In this case the plug-in adds a contact form but other functionality is possible, such as a photo galleries, atom feeds and more. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">By default Juassi-Blog v.2.0 has the following built in &ldquo;content types&rdquo;: </span></p>
+			<ul>
+				<li>
+					<span style="font-size: 11.000000pt; font-family: 'Calibri'">Blog</span></li>
+				<li>
+					<span style="font-size: 11.000000pt; font-family: 'Calibri'">CMS</span></li>
+				<li>
+					<span style="font-size: 11.000000pt; font-family: 'Calibri'">RSS (for posts and comments) </span></li>
+			</ul>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">When a user visits a Juassi-Blog powered website Juassi-Blog decides the content type that is currently in use. By default the blog type is used. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">If no content type can be found Juassi-Blog allows a plug-in to capture the processing, allowing it to add new functionality.&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="plug_in_security">
+	<div class="page-header"><h3>Plug-in Security</h3><hr class="notop"></div>
+<div class="page" title="Page 18">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 14.000000pt; font-family: 'Cambria,Bold'">Plug-in Security </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Plug-ins can open Juassi-Blog up to security issues as there is no way of restricting what a plug-in can do. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Please take care when writing plug-ins. </span></p>
+			<p>
+				<span style="font-size: 13.000000pt; font-family: 'Cambria,Bold'">SQL injection </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">A common form of attack is an SQL injection. As&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&nbsp;uses the PHP PDO class it is possible to use </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&ldquo;Prepared statements&rdquo;. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Prepared statements are more secure as the database is able to differentiate between the actual SQL statement and user input. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">An </span><span style="font-size: 11.000000pt; font-family: 'Calibri,Bold'">insecure </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">SQL query may look like this:</span><br>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">SELECT * FROM users WHERE user_name = $_POST[&bdquo;user_name‟] </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">A more secure way of writing this is with prepared statements:</span><br>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">SELECT * FROM users WHERE user_name = ?</span><br>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">You then bind </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">$_POST[&bdquo;user_name‟] </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">to </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">?</span><br>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">A full example:</span><br>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">$query = &quot;SELECT * FROM users WHERE user_name = ?&quot;;<br>
+				$stmt = $juassi_db-&gt;prepare($query);<br>
+				$stmt-</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">&gt;bindParam(1, $_POST[&bdquo;user_name‟]); </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">$stmt-&gt;execute(); </span></p>
+			<p>
+				<span style="font-size: 13.000000pt; font-family: 'Cambria,Bold'">Cross-site scripting (XSS) </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Another common attack is cross-site scripting (XSS). This is where a user is able to insert malicious code into the website. This code is then displayed to other users. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">These attacks can steal cookies; infect the end users computer with spyware and more. It is important that any user input is validated.<br>
+				The most basic method is converting everything into HTML entities.<br>
+				An </span><span style="font-size: 11.000000pt; font-family: 'Calibri,Bold'">insecure </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">plug-in may include the following code: </span></p>
+			<pre>
+<span style="font-size: 11.000000pt; font-family: 'Courier New'">&lt;?php echo $user_input; ?&gt;
+</span></pre>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">A more secure way is to use&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&rsquo;s built in HTML entities function: </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&lt;?php echo juassi_htmlentities($user_input); ?&gt;&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="plug_in_updating">
+	<div class="page-header"><h3>Plug-in Updating</h3><hr class="notop"></div>
+<div class="page" title="Page 19">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 14.000000pt; font-family: 'Cambria,Bold'">Plug-in Updating </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Juassi-Blog v.2.0 includes a plug-in update notification system. This system notifies the end user when a newer version of a plug-in is available. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The notification system uses&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&rsquo;s cron system to </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">retrieve plug-in information daily. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">To activate this service for your plug-in you must specify the plug-in update URL in the plug-in meta data file. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">For example: </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&#39;plugin_update_checker_url&#39; =&gt; &#39;http://update.juassi.org/juassi_blog2/update_check.php&#39; </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">This file must be hosted by the developer and may be either static or dynamic.&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&nbsp;expects the URL to return an XML document in the following format: </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">&lt;?xml version=&quot;1.0&quot; ?&gt;<br>
+				&lt;plugin_name&gt; </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&lt;version&gt;Version Number&lt;/version&gt; </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&lt;release_notes&gt;Release Notes URL&lt;/release_notes&gt; </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">&lt;download&gt;Download URL&lt;/download&gt; </span></p>
+			<pre>
+<span style="font-size: 11.000000pt; font-family: 'Courier New'">&lt;/plugin_name&gt;
+</span></pre>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Developers are free to use their own notification system if preferred.&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="cron">
+	<div class="page-header"><h3>Cron</h3><hr class="notop"></div>
+<div class="page" title="Page 25">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 14.000000pt; font-family: 'Cambria,Bold'">Cron </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Juassi-Blog v.2.0 includes a basic cron system. This system is designed to process background tasks at a set interval. This can be useful for tasks that are required to run without any user intervention such as publishing future posts. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Juassi-Blog has four built in time intervals: </span></p>
+			<ul>
+				<li>
+					<span style="font-size: 11.000000pt; font-family: 'Symbol'">&nbsp;&nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">Every Hour </span></li>
+				<li>
+					<span style="font-size: 11.000000pt; font-family: 'Symbol'">&nbsp;&nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">Every Day </span></li>
+				<li>
+					<span style="font-size: 11.000000pt; font-family: 'Symbol'">&nbsp;&nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">Every Week </span></li>
+				<li>
+					<span style="font-size: 11.000000pt; font-family: 'Symbol'">&nbsp;&nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">Every Month </span></li>
+			</ul>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The cron system is setup so that it will only run at most once every hour (to keep server load down). To add a task to the cron system is it simply a matter of adding a task within your plug-in.<br>
+				The cron hooks are as follows: </span></p>
+			<ul>
+				<li>
+					<span style="font-size: 11.000000pt; font-family: 'Symbol'">&nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">cron_every_hour </span></li>
+				<li>
+					<span style="font-size: 11.000000pt; font-family: 'Symbol'">&nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Courier New'">cron_every_day</span></li>
+				<li>
+					<span style="font-size: 11pt; font-family: Symbol;">&nbsp;</span><span style="font-size: 11pt; font-family: 'Courier New';">cron_every_week </span></li>
+				<li>
+					<span style="font-size: 11pt; font-family: Symbol;">&nbsp;</span><span style="font-size: 11pt; font-family: 'Courier New';">cron_every_month</span></li>
+			</ul>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">So an example of adding a task to run every hour: </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Courier New'">juassi_add_task(&bdquo;awesome_stuff‟, &#39;cron_every_hour&#39;, &#39; </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">awesome_stuff_hourly_process&#39;); </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Cron tasks are not permanent so this line of code would need to be run each time when the plug-in is loaded. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The cron system is triggered by any request to a page handled by&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&nbsp;(for example: front page, rss etc), therefore the cron system may not run exactly every hour. Sites with higher visits are more likely to run closer to the schedule.&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="conclusion">
+	<div class="page-header"><h3>Conclusion</h3><hr class="notop"></div>
+<div class="page" title="Page 26">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 14.000000pt; font-family: 'Cambria,Bold'">Conclusion </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Hopefully this guide has provided enough information about Juassi-Blog to allow anyone to create a plug-in. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Thank you for developing for Juassi-Blog; your time and dedication is what makes a good product great. </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Again if you require help with any aspect of Juassi-Blog please contact me: </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Juan Carlos Reyes</span></p>
+			<p>
+				<span><a href="mailto:'&#106;&#99;&#97;&#114;&#108;&#111;&#115;&#114;&#101;&#121;&#101;&#115;&#99;&#64;&#106;&#117;&#97;&#115;&#115;&#105;&#46;&#99;&#111;&#109;'">&#106;&#99;&#97;&#114;&#108;&#111;&#115;&#114;&#101;&#121;&#101;&#115;&#99;&#64;&#106;&#117;&#97;&#115;&#115;&#105;&#46;&#99;&#111;&#109;</a></span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+
+	</div>
+</body>
+</html>

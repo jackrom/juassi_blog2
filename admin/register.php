@@ -5,7 +5,6 @@ include('../functions/juassi_common.php');
 include(JUASSI_ROOT . JUASSI_INCLUDE . '/general-admin-template.functions.php');
 
 
-
 juassi_set_admin_title('Registro');
 if (juassi_is_logged_in()) {
 	juassi_set_header('Location: ' . $_SESSION['juassi_page']);

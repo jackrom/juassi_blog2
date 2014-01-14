@@ -1,0 +1,474 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>Juassi-Blog v.2.0 Installation User Guide - Installation User Guide</title>
+	
+	<meta name="description" content="This guide includes the steps required to successfully install Juassi-Blog v.2.0.">
+	<meta name="author" content="Juan Carlos Reyes">
+	<meta name="copyright" content="Juan Carlos Reyes">
+	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+	<meta name="date" content="2014-01-14T00:00:00+01:00">
+	
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+	
+	<link rel="stylesheet" href="assets/css/custom.css" media="screen">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+	
+	<script src="assets/js/jquery.js"></script>
+	
+	<script src="assets/js/jquery.scrollTo.js"></script>
+	<script src="assets/js/jquery.easing.js"></script>
+	
+	<script>document.createElement('section');var duration='500',easing='swing';</script>
+	<script src="assets/js/script.js"></script>
+	
+	<style>
+		html{background-color:#F3F3F3;color:#585858;}
+		::-moz-selection{background:#111111;color:#F1F1F1;}
+		::selection{background:#111111;color:#F1F1F1;}
+		#documenter_sidebar #documenter_logo{background-image:url(assets/images/image_1.png);}
+		a{color:#111111;}
+		.btn {
+			border-radius:3px;
+		}
+		.btn-primary {
+			  background-image: -moz-linear-gradient(top, #585858, #3B3B3B);
+			  background-image: -ms-linear-gradient(top, #585858, #3B3B3B);
+			  background-image: -webkit-gradient(linear, 0 0, 0 585858%, from(#333333), to(#3B3B3B));
+			  background-image: -webkit-linear-gradient(top, #585858, #3B3B3B);
+			  background-image: -o-linear-gradient(top, #585858, #3B3B3B);
+			  background-image: linear-gradient(top, #585858, #3B3B3B);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#585858', endColorstr='#3B3B3B', GradientType=0);
+			  border-color: #3B3B3B #3B3B3B #bfbfbf;
+			  color:#F9F9F9;
+		}
+		.btn-primary:hover,
+		.btn-primary:active,
+		.btn-primary.active,
+		.btn-primary.disabled,
+		.btn-primary[disabled] {
+		  border-color: #585858 #585858 #bfbfbf;
+		  background-color: #3B3B3B;
+		}
+		hr{border-top:1px solid #E5E5E5;border-bottom:1px solid #F9F9F9;}
+		#documenter_sidebar, #documenter_sidebar ul a{background-color:#333333;color:#F1F1F1;http://static.revaxarts-themes.com/noise.gif}
+		#documenter_sidebar ul a{-webkit-text-shadow:1px 1px 0px #444444;-moz-text-shadow:1px 1px 0px #444444;text-shadow:1px 1px 0px #444444;}
+		#documenter_sidebar ul{border-top:1px solid #222222;}
+		#documenter_sidebar ul a{border-top:1px solid #444444;border-bottom:1px solid #222222;color:#F1F1F1;}
+		#documenter_sidebar ul a:hover{background:#111111;color:#F1F1F1;border-top:1px solid #111111;}
+		#documenter_sidebar ul a.current{background:#111111;color:#F1F1F1;border-top:1px solid #111111;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body class="documenter-project-juassi-blog-v20-installation-user-guide">
+	<div id="documenter_sidebar" style="margin-top:0px;padding-top:0px;">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ul id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+				
+			<li><a href="#system_requirements" title="System Requirements">System Requirements</a></li>
+			<li><a href="#installing" title="Installing">Installing</a></li>
+			<li><a href="#faq" title="FAQ">FAQ</a></li>
+			<li><a href="#conclusion" title="Conclusion">Conclusion</a></li>
+
+		</ul>
+		<div id="documenter_copyright">Copyright Juan Carlos Reyes 2014<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v2.0</a> 
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover">
+	<h1>Juassi-Blog v.2.0 Installation User Guide</h1>
+	<h2>Installation User Guide</h2>
+	<div id="documenter_buttons">
+		<a href="http://www.juassi.org/juassi_blog2" class="btn btn-primary btn-large">Juassi-Blog v.2.0</a> <a href="http://www.juassi.com" class="btn btn-large">Juassi Studio</a> <a href="http://www.juassi.com/soporte" class="btn btn-large">Support</a> 
+	</div>
+	<hr>
+	<ul>
+	<li>created: 01/14/2014</li>
+	<li>latest update: 01/14/2014</li>
+	<li>by: Juan Carlos Reyes</li>
+	<li><a href=""></a></li>
+	<li>email: <a href="mailto:&#106;&#99;&#97;&#114;&#108;&#111;&#115;&#114;&#101;&#121;&#101;&#115;&#99;&#64;&#106;&#117;&#97;&#115;&#115;&#105;&#46;&#99;&#111;&#109;">&#106;&#99;&#97;&#114;&#108;&#111;&#115;&#114;&#101;&#121;&#101;&#115;&#99;&#64;&#106;&#117;&#97;&#115;&#115;&#105;&#46;&#99;&#111;&#109;</a></li>
+	</ul>
+	<p>Thank you for purchasing my script. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form here. Thanks so much!</p>
+	</section>
+	
+	<section id="system_requirements">
+	<div class="page-header"><h3>System Requirements</h3><hr class="notop"></div>
+<div class="page" title="Page 3">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 14.000000pt; font-family: 'Cambria,Bold'">System Requirements </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">The major change with Juassi-Blog v.2.0 is the requirement for PHP 5.2. The table below shows the requirements of &nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.2.0</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">.&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	PHP &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;5.2+</p>
+<p>
+	Database &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: Calibri; font-size: 11pt;">MySQL 4.1+/SQLite&nbsp;</span></p>
+<p>
+	WebServer &nbsp; &nbsp; &nbsp; <span style="font-family: Calibri; font-size: 11pt;">Apache/IIS&nbsp;</span></p>
+<p>
+	Platform &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="font-family: Calibri; font-size: 11pt;">*nix/Windows&nbsp;</span></p>
+<p>
+	&nbsp;</p>
+<div class="page" title="Page 3">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 9.000000pt; font-family: 'Calibri'">NOTE: SQLITE IS ONLY SUPPORTED FOR NEW INSTALLS </span></p>
+			<p>
+				<span style="font-size: 9.000000pt; font-family: 'Calibri'">NOTE:&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.2.0</span><span style="font-size: 9.000000pt; font-family: 'Calibri'">&nbsp;DOES NOT SUPPORT PHP 6&nbsp;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+<div class="page" title="Page 3">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 13.000000pt; font-family: 'Cambria,Bold'">PHP extensions required </span></p>
+			<p>
+				<span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.2.0</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&nbsp;requires the following PHP extensions to be installed: </span></p>
+			<ul style="list-style-type: none">
+				<li>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Symbol'">&nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">PHP_PDO (base database driver) </span></p>
+				</li>
+				<li>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Symbol'">&nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">PHP_PDO_MYSQL or PHP_PDO_SQLITE (database driver, depended on which database </span></p>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Calibri'">system you wish to use) </span></p>
+				</li>
+				<li>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Symbol'">&nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">SimpleXML (use for XML) </span></p>
+				</li>
+				<li>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Symbol'">&nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">Session (used to track users/logins etc) </span></p>
+				</li>
+				<li>
+					<p>
+						<span style="font-size: 11.000000pt; font-family: 'Symbol'">&nbsp;</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">Zlib (optional, used for gzip)&nbsp;</span></p>
+				</li>
+			</ul>
+			<p>
+				&nbsp;</p>
+			<p>
+				<span style="font-family: 'Cambria,Bold'; font-size: 14pt;">Apache or IIS</span></p>
+			<div class="page" title="Page 4">
+				<div class="layoutArea">
+					<div class="column">
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Calibri'">If you have access to both webservers (Apache or IIS) it is recommended that Apache is used. Apache supports mod_rewrite (nice URLs); IIS does not. </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Calibri'">IIS also has some issues with </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">$_SERVER[&#39;REQUEST_URI&#39;] </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">which is used throughout&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.2.0</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">. </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Calibri'">The main issue is when&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&nbsp;determines if the comments (including comment form) should be displayed for a post. The best way to overcome this is by using a custom post rewrite rule. </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Calibri'">The following rule has been tested to work: </span><span style="font-size: 11.000000pt; font-family: 'Courier New'">/index.php?bt_id=%post_id% </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">This value can be changed in the admin panel under:</span><br>
+							<span style="font-size: 11.000000pt; font-family: 'Courier New'">Settings -&gt; Permalink Settings -&gt; Post Permalink Format </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">Otherwise when installing simply disable URL rewriting. </span></p>
+						<p>
+							<span style="font-size: 14.000000pt; font-family: 'Cambria,Bold'">MySQL or SQLite </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Calibri'">If you have access to both database systems (MySQL and SQLite) it is recommended that MySQL is used.&nbsp;</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="installing">
+	<div class="page-header"><h3>Installing</h3><hr class="notop"></div>
+<div class="page" title="Page 5">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 14.000000pt; font-family: 'Cambria,Bold'">Installing </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Please note if you already have </span><span style="font-size: 11.000000pt; font-family: 'Calibri'">Apache/PHP/MySQL etc installed please just follow the &ldquo;Generic Install&rdquo; guide. </span></p>
+			<p>
+				<span style="font-size: 13.000000pt; font-family: 'Cambria,Bold'">Generic Install </span></p>
+			<ol>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">Download</span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">Unzip </span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">Modify .htaccess if required (i.e not installing in the domain root /) </span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">visit juassi-install/ in your web browser to install </span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">once installed delete the juassi-install/ folder </span></p>
+				</li>
+			</ol>
+			<p>
+				<span style="font-size: 13.000000pt; font-family: 'Cambria,Bold'">Installing on a Mac (using a MySQL database) </span></p>
+			<p>
+				<span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.2.0</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&nbsp;works and is supported on the Mac platform, the following steps need to be completed before&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">&nbsp;will work: </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Cambria,Bold'">For Mac OS Tiger </span></p>
+			<ol>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">Install MySQL 5 (found here: </span><span style="font-size: 11pt; color: rgb(0, 0, 255);">http://dev.mysql.com/doc/refman/5.0/en/mac-os-x- installation.html</span><span style="font-size: 11pt;">) </span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">Install PHP5 (found here: </span><span style="font-size: 11pt; color: rgb(0, 0, 255);">http://www.entropy.ch/software/macosx/php/</span><span style="font-size: 11pt;">) </span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">Create a MySQL database. You can use phpMyAdmin to (found here: </span></p>
+					<p>
+						<span style="font-size: 11pt;">http://www.phpmyadmin.net/) create a new MySQL database. </span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">Modify .htaccess if required (i.e not installing in the domain root /) </span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">Run Installer </span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">once installed delete the juassi-install/ folder </span></p>
+				</li>
+			</ol>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Calibri'">Note: Mod_Rewrite is recommended and isn&#39;t enabled by default on the Mac (this should help: </span><span style="font-size: 11.000000pt; font-family: 'Calibri'; color: rgb(0.000000%, 0.000000%, 100.000000%)">http://www.ablogapart.org/2005/11/21/enable-mod_rewrite-on-os-x-104-tiger/</span><span style="font-size: 11.000000pt; font-family: 'Calibri'">). </span></p>
+			<p>
+				<span style="font-size: 11.000000pt; font-family: 'Cambria,Bold'">For Mac OS Leopard </span></p>
+			<ol>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">Install MySQL 5 (found here: </span><span style="font-size: 11pt; color: rgb(0, 0, 255);">http://dev.mysql.com/doc/refman/5.0/en/mac-os-x- installation.html </span><span style="font-size: 11pt;">please note the comment by Matt Connolly on October 30 2007 5:21am) </span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">Enabled PHP (found here: </span><span style="font-size: 11pt; color: rgb(0, 0, 255);">http://www.bluetrait.com/archive/2007/10/27/how-to-enable- </span></p>
+					<p>
+						<span style="font-size: 11pt; color: rgb(0, 0, 255);">php-on-mac-os-leopard/</span><span style="font-size: 11pt;">) </span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">Create a MySQL database. You can use phpMyAdmin to (found here: </span></p>
+					<p>
+						<span style="font-size: 11pt; color: rgb(0, 0, 255);">http://www.phpmyadmin.net/</span><span style="font-size: 11pt;">) create a new MySQL database. </span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">Modify .htaccess if required (i.e not installing in the domain root /) </span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">Run Installer </span></p>
+				</li>
+				<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+					<p>
+						<span style="font-size: 11pt;">once installed delete the juassi-install/ folder&nbsp;</span></p>
+				</li>
+			</ol>
+			<p style="font-size: 11.000000pt; font-family: 'Calibri';">
+				&nbsp;</p>
+			<p style="font-size: 11.000000pt; font-family: 'Calibri';">
+				<span style="font-family: 'Cambria,Bold'; font-size: 13pt;">Installing on Windows</span></p>
+			<div class="page" title="Page 6">
+				<div class="layoutArea">
+					<div class="column">
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Cambria,Bold'">Installing using WAMP5/WAMPSERVER </span></p>
+						<ol>
+							<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+								<p>
+									<span style="font-size: 11pt;">Install WAMP (found here: </span><span style="font-size: 11pt; color: rgb(0, 0, 255);">http://www.wampserver.com/en/</span><span style="font-size: 11pt;">) </span></p>
+							</li>
+							<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+								<p>
+									<span style="font-size: 11pt;">Make sure PDO and PDO database driver (PHP extensions) are enabled (can be done via tray </span></p>
+								<p>
+									<span style="font-size: 11pt;">icon) </span></p>
+							</li>
+							<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+								<p>
+									<span style="font-size: 11pt;">Create a MySQL database through phpMyAdmin </span></p>
+							</li>
+							<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+								<p>
+									<span style="font-size: 11pt;">Modify .htaccess if required (i.e not installing in the domain root /) </span></p>
+							</li>
+							<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+								<p>
+									<span style="font-size: 11pt;">Run Installer </span></p>
+							</li>
+							<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+								<p>
+									<span style="font-size: 11pt;">once installed delete the juassi-install/ folder </span></p>
+							</li>
+						</ol>
+						<p>
+							<span style="font-size: 13.000000pt; font-family: 'Cambria,Bold'">Installing on *nix </span></p>
+						<p>
+							<span style="font-size: 11.000000pt; font-family: 'Cambria,Bold'">Installing on FreeBSD (6.2) </span></p>
+						<ol>
+							<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+								<p>
+									<span style="font-size: 11pt;">Install Apache 2.2 (best done via FreeBSD port system) </span></p>
+							</li>
+							<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+								<p>
+									<span style="font-size: 11pt;">Install MySQL 5.1 (best done via FreeBSD port system, found in </span></p>
+								<p>
+									<span style="font-size: 11pt;">/usr/ports/databases/mysql51-server) </span></p>
+							</li>
+							<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+								<p>
+									<span style="font-size: 11pt;">Install PHP5 (best done via ports, found in /usr/ports/lang/php5) </span></p>
+							</li>
+							<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+								<p>
+									<span style="font-size: 11pt;">Install PHP5 extensions (best done via ports, found in /usr/ports/lang/ and </span></p>
+								<p>
+									<span style="font-size: 11pt;">/usr/ports/databases) </span></p>
+							</li>
+							<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+								<p>
+									<span style="font-size: 11pt;">Create a MySQL database. You can use phpMyAdmin to (found here: </span></p>
+								<p>
+									<span style="font-size: 11pt;">http://www.phpmyadmin.net/) create a new MySQL database. </span></p>
+							</li>
+							<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+								<p>
+									<span style="font-size: 11pt;">Modify .htaccess if required (i.e not installing in the domain root /) </span></p>
+							</li>
+							<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+								<p>
+									<span style="font-size: 11pt;">Run Installer </span></p>
+							</li>
+							<li style="font-size: 11.000000pt; font-family: 'Calibri'">
+								<p>
+									<span style="font-size: 11pt;">once installed delete the juassi-install/ folder&nbsp;</span></p>
+							</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="faq">
+	<div class="page-header"><h3>FAQ</h3><hr class="notop"></div>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(88, 88, 88); background-color: rgb(243, 243, 243);">
+	<span style="font-family: 'Cambria,Bold'; font-size: 14pt; color: rgb(34, 34, 34);">FAQ</span></p>
+<div class="page" title="Page 7">
+	<div class="layoutArea">
+		<div class="column">
+			<p>
+				<span style="font-size: 11pt; font-family: Calibri;">Q: Cron doesn&#39;t seem to work using WAMP/Vista/IPv6/etc, why?</span></p>
+			<p>
+				<span style="font-size: 11pt; font-family: Calibri;">A: From the looks of it WAMP isn&#39;t listening on ::1 (IPv6 localhost) which is what the the cron service will try to connect to (localhost == ::1).</span></p>
+			<p>
+				<span style="font-size: 11pt; font-family: Calibri;">There are a few options:</span></p>
+			<ol>
+				<li style="font-size: 11pt; font-family: Calibri;">
+					<p>
+						<span style="font-size: 11pt;">Disable IPv6 (some Docs here: http://www.ipv6day.org/action.php?n=En.Configuration- WindowsVista), not really recommended.</span></p>
+				</li>
+				<li style="font-size: 11pt; font-family: Calibri;">
+					<p>
+						<span style="font-size: 11pt;">Change the Juassi-Blog domain from localhost to 127.0.0.1 (or another domain name that has an IPv4 only address)</span></p>
+				</li>
+				<li style="font-size: 11pt; font-family: Calibri;">
+					<p>
+						<span style="font-size: 11pt;">Enable IPv6 on WAMP</span></p>
+				</li>
+			</ol>
+			<p>
+				&nbsp;</p>
+			<p>
+				<span style="font-size: 11pt; font-family: Calibri;">Q: After I install&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.2.0</span><span style="font-size: 11pt; font-family: Calibri;">&nbsp;the front page shows a 404 error, why?<br>
+				A: You must first create a post (found in the admin panel /admin/).&nbsp;</span></p>
+			<p>
+				&nbsp;</p>
+			<p>
+				<span style="font-size: 11pt; font-family: Calibri;">Q: Do plugins from&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.1.0</span><span style="font-size: 11pt; font-family: Calibri;">&nbsp;work?<br>
+				A: No, sorry. There has been much change since&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.1.0</span><span style="font-size: 11pt; font-family: Calibri;">.</span></p>
+			<p>
+				<br>
+				<span style="font-size: 11pt; font-family: Calibri;">Q: How do I write a plugin for&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.2.0</span><span style="font-size: 11pt; font-family: Calibri;">?<br>
+				A: Please read the&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.2.0</span><span style="font-size: 11pt; font-family: Calibri;">&nbsp;Plugin Guide.</span></p>
+			<p>
+				<br>
+				<span style="font-size: 11pt; font-family: Calibri;">Q: I want to add my own content type, how?<br>
+				A: Please read the&nbsp;</span><span style="font-family: Calibri; font-size: 15px;">Juassi-Blog v.2.0</span><span style="font-size: 11pt; font-family: Calibri;">&nbsp;Plugin Guide.</span></p>
+			<p>
+				&nbsp;</p>
+			<p>
+				<br>
+				<span style="font-size: 11pt; font-family: Calibri;">Q: Why is the default theme so ugly?</span></p>
+			<p>
+				<span style="font-size: 11pt; font-family: Calibri;">A: I&#39;m not a graphics designer, the idea is that you the user of Juassi-Blog design your own theme or use a custom one. The default theme should be fairly easy to understand (basic HTML/CSS) and would be a good starting point to design your own theme.</span><span style="font-size: 11pt; font-family: Wingdings;"></span></p>
+			<p>
+				<span style="font-size: 11pt; font-family: Calibri;">Q: I have access to both MySQL and SQLite, which should I use?&nbsp;</span></p>
+			<p>
+				<span style="font-size: 11pt; font-family: Calibri;">A: MySQL.</span></p>
+			<p>
+				<span style="font-size: 11pt; font-family: Calibri;">If you have any problems sign up to the mailing list and ask a question (found here: http://www.juassi.org/weblog/archive/2006/10/05/bluetrait-mailing-lists/).&nbsp;</span></p>
+			<div>
+				&nbsp;</div>
+		</div>
+	</div>
+</div>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(88, 88, 88); background-color: rgb(243, 243, 243);">
+	&nbsp;</p>
+</section>
+<section id="conclusion">
+	<div class="page-header"><h3>Conclusion</h3><hr class="notop"></div>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(88, 88, 88); background-color: rgb(243, 243, 243);">
+	<span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-size: 14pt; font-family: 'Cambria,Bold'; vertical-align: baseline;">Conclusion</span></p>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(88, 88, 88); background-color: rgb(243, 243, 243);">
+	<span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-size: 11pt; font-family: Calibri; vertical-align: baseline;">Hopefully this guide has provided enough information about Juassi-Blog to allow anyone to create a plug-in.</span></p>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(88, 88, 88); background-color: rgb(243, 243, 243);">
+	<span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-size: 11pt; font-family: Calibri; vertical-align: baseline;">Thank you for developing for Juassi-Blog; your time and dedication is what makes a good product great.</span></p>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(88, 88, 88); background-color: rgb(243, 243, 243);">
+	<span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-size: 11pt; font-family: Calibri; vertical-align: baseline;">Again if you require help with any aspect of Juassi-Blog please contact me:</span></p>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(88, 88, 88); background-color: rgb(243, 243, 243);">
+	<span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-size: 11pt; font-family: Calibri; vertical-align: baseline;">Juan Carlos Reyes</span></p>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(88, 88, 88); background-color: rgb(243, 243, 243);">
+	<span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-family: inherit; vertical-align: baseline;"><a href="mailto:'&#106;&#99;&#97;&#114;&#108;&#111;&#115;&#114;&#101;&#121;&#101;&#115;&#99;&#64;&#106;&#117;&#97;&#115;&#115;&#105;&#46;&#99;&#111;&#109;'" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-family: inherit; vertical-align: baseline; color: rgb(17, 17, 17); text-decoration: none; cursor: pointer;">&#106;&#99;&#97;&#114;&#108;&#111;&#115;&#114;&#101;&#121;&#101;&#115;&#99;&#64;&#106;&#117;&#97;&#115;&#115;&#105;&#46;&#99;&#111;&#109;</a></span></p>
+</section>
+
+	</div>
+</body>
+</html>

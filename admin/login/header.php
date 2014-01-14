@@ -37,7 +37,7 @@
 					<li>
 						<a href="login.php">Entrar</a>
 					</li>
-
+					<!-- 
 					<li>
 						<a href="register.php">Registrarse</a>
 					</li>
@@ -45,6 +45,7 @@
 					<li>
 						<a href="contact.php">Contacto</a>
 					</li>
+					 -->
 				</ul>
 			</nav>
 		</div><!--.menu end-->
