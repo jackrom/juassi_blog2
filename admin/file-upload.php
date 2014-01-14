@@ -3,8 +3,6 @@
 	juassi_set_admin_title('Carga de Archivos');
 	juassi_set_in_admin(true);
 	include('include/html-header.php');
-	
-	header('Location: ../upload');
 ?>
 
 

@@ -36,7 +36,7 @@
 							array(PDO::ATTR_PERSISTENT => true));
 					}
 					catch (PDOException $e) {
-						juassi_die($e->getMessage());
+						juassi_die('I«m sorry, Unable connect to the database');
 					}
 					//set charset
 					parent::exec('SET NAMES ' . $juassi_db_charset);
@@ -54,7 +54,7 @@
 						return parent::__construct('sqlite:' . $juassi_db_name);
 					}
 					catch (PDOException $e) {
-						juassi_die($e->getMessage());
+						juassi_die('I«m sorry, Unable connect to the database');
 					}
 				break;
 

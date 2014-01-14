@@ -5,94 +5,24 @@
         include('include/html-header.php');
 ?>
 
-<?php
-        
-	if ($message = juassi_admin_upgrade_message()) {
-		echo juassi_admin_message($message);
-	}
-	
-	if (is_readable("../admin/constantes.php")) require_once("../admin/constantes.php");
-	else exit("ERROR: Imposible abrir constantes.php");
 
-	foreach (array($JUASSI_CONFIG_FILE, $JUASSI_LIB_PATH."selectlang.php", $JUASSI_ACCESS_FILE) as $i) {
-            if (is_readable($i)) require_once($i);
-            else exit(juassi_msg($i));
-        }
-	
-
-?>
 
 <div class="row-fluid">
-    <div class="span7">
+    <div class="span12">
         <h3 class="heading">Estadisticas Generales <small>&Uacute;ltimos Datos</small></h3>
-        <ul class="ov_boxes">
-                <li>
-                        <div class="p_bar_up p_canvas">2,4,9,7,12,8,16</div>
-                        <div class="ov_text">
-                                <strong><?php echo juassi_histcalc($access['time']['month']); ?></strong>
-                                <?php echo $translation['tstat_last_year']; ?>
-                        </div>
-                </li>
-                <li>
-                        <div class="p_bar_down p_canvas">20,15,18,14,10,13,9,7</div>
-                        <div class="ov_text">
-                                <strong><?php echo juassi_histcalc($access['time']['day']); ?></strong>
-                                <?php echo $translation['tstat_last_month']; ?>
-                        </div>
-                </li>
-                <li>
-                        <div class="p_line_up p_canvas">3,5,9,7,12,8,16</div>
-                        <div class="ov_text">
-                                <strong><?php echo juassi_histcalc($access['time']['wday']); ?></strong>
-                                <?php echo $translation['tstat_last_week']; ?>
-                        </div>
-                </li>
-                <li>
-                        <div class="p_line_down p_canvas">20,16,14,18,15,14,14,13,12,10,10,8</div>
-                        <div class="ov_text">
-                                <strong><?php echo juassi_histcalc($access['time']['hour']);  ?></strong>
-                                <?php echo $translation['tstat_last_day']; ?>
-                        </div>
-                </li>
-                <li>
-                        <div class="p_line_up p_canvas">3,5,9,7,12,8,16</div>
-                        <div class="ov_text">
-                                <strong><?php echo $access['stat']['totalvisits']; ?></strong>
-                                <?php echo $translation['gstat_total_visits']; ?>
-                        </div>
-                </li>
-                <li>
-                        <div class="p_line_down p_canvas">20,16,14,18,15,14,14,13,12,10,10,8</div>
-                        <div class="ov_text">
-                                <strong><?php echo $access['stat']['totalcount']; ?></strong>
-                                <?php echo $translation['gstat_total_unique']; ?>
-                        </div>
-                </li>
-        </ul>
+        
     </div>
-    
-        <?php echo juassi_show_os(); ?>
    
 </div>
 
 <div class="row-fluid">
-<div class="span5">
-        <h3 class="heading">Visitors by Country <small>&Uacute;ltimo mes</small></h3>
-        <div id="fl_2" style="height:200px;width:80%;margin:50px auto 0"></div>
-</div>
-<div class="span7">
-        <div class="heading clearfix">
-                <h3 class="pull-left"><?php echo $translation['tstat_last_week']; ?></h3>
-                <span class="pull-right label label-info ttip_t" title="Visitas Diarias ultima semana">Info</span>
-        </div>
-        <div id="fl_a" style="width:100%;margin:40px auto 10px 80px;"><img src="lastDias.png" /></div>
-        
-</div>
+
+
 </div>
 
 
 <div class="row-fluid">
-<div class="span8">
+<div class="span12">
         <h3 class="heading">Calendar</h3>
         <div id="calendar"></div>
 </div>

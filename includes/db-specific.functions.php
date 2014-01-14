@@ -23,7 +23,7 @@ function juassi_is_installed() {
 		$stmt->execute();
 	}
 	catch (Exception $e) {
-		juassi_die($e->getMessage());
+		juassi_die(' database not installed');
 	}
 	$array = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	if (!isset($array[0])) return false;

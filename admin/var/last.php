@@ -295,6 +295,14 @@ $last =
           "1389364742|0|1"
         ),
         "search" => "-"
+      ),
+      array(
+        "time" => 1389570215, "prx_ip" => "unknown", "ip" => "127.0.0.1", "dns" => "localhost", "agent" => "unknown", "referer" => "unknown", "page" => 0, "visits" => 1, "browser" => "other", "os" => "other", "ext" => "unknown", "id" => 37, 
+        "views" =>
+        array(
+          "1389570215|0|1"
+        ),
+        "search" => "-"
       )
     )
   );
